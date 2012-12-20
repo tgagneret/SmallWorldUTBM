@@ -1,3 +1,4 @@
+package Pouvoirs;
 
 public class Managers {
 
