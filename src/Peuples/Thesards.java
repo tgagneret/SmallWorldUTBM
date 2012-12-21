@@ -3,14 +3,14 @@ package Peuples;
  /* Construit des projets (+1 def) */
 
 
-public class Thesards {
+public class Thesards extends Peuple{
 
 	public Thesards(){
 		super();
 		this.nom = "Thésard";
 	}
 
-	int attaque(int nbrBoulots){
+	int attaque(int nbrBoulots, int niveau , String type){
 		return nbrBoulots;
 	}
 	

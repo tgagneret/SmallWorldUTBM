@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Managers {
+public class Managers extends Pouvoir{
 
 
 	public Managers(){

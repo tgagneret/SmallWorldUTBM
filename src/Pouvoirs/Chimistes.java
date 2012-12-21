@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Chimistes {
+public class Chimistes extends Pouvoir{
 
 	public Chimistes(){
 		super();

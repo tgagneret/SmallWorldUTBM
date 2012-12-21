@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Mecaniciens {
+public class Mecaniciens extends Pouvoir{
 
 	public Mecaniciens(){
 		super();

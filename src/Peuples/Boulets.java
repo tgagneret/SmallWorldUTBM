@@ -8,10 +8,10 @@ public class Boulets extends Peuple{
 	public Boulets(){
 		super();
 		this.nom = "Boulet";
-		this.boulots = 8;
+		this.boulots += 2;
 	}
 
-	int attaque(int nbrBoulots){
+	int attaque(int nbrBoulots, int niveau , String type){
 		return nbrBoulots;
 	}
 	

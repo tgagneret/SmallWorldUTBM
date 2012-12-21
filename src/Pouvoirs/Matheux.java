@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Matheux {
+public class Matheux extends Pouvoir{
 
 	public Matheux(){
 		super();

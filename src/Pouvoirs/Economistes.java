@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Economistes {
+public class Economistes extends Pouvoir{
 
 	public Economistes(){
 		super();

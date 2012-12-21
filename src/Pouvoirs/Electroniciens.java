@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Electroniciens {
+public class Electroniciens extends Pouvoir{
 
 	public Electroniciens(){
 		super();

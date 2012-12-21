@@ -12,7 +12,7 @@ public class Administratifs extends Peuple{
 		
 	}
 
-	int attaque(int nbrBoulots){
+	int attaque(int nbrBoulots, int niveau , String type){
 		return nbrBoulots;
 	}
 	

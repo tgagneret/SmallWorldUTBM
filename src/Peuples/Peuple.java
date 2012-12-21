@@ -5,8 +5,8 @@ package Peuples;
 
 abstract class Peuple {
 	
-	private int boulots;
-	private String nom;
+	protected int boulots;
+	protected String nom;
 	
 	public Peuple(){
 		
@@ -14,10 +14,17 @@ abstract class Peuple {
 		nom = ""; 
 	}
 		
-	abstract int attaque(int nbrBoulots);
+	/* Ou type = CS , EC ou TM */
+	
+	abstract int attaque(int nbrBoulots, int niveau , String type);
 	
 	abstract int defense(int nbrBoulots);
 	
 	abstract boolean isPossible(int x, int y);
+	
+	int get_boulots(){
+		
+		return boulots;
+	}
 			
 }

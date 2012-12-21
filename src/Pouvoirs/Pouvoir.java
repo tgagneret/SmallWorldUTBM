@@ -2,8 +2,8 @@ package Pouvoirs;
 
 public abstract class Pouvoir {
 
-	private String nom;
-	private String type;
+	protected String nom;
+	protected String type;
 	
 	public Pouvoir(){
 		

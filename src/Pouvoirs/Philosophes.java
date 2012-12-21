@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Philosophes {
+public class Philosophes extends Pouvoir{
 
 	public Philosophes(){
 		super();

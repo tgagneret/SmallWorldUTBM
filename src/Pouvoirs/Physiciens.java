@@ -1,6 +1,7 @@
 package Pouvoirs;
 
-public class Physiciens {
+public class Physiciens extends Pouvoir{
+
 
 	public Physiciens(){
 		super();

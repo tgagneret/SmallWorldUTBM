@@ -11,7 +11,7 @@ public class Profs extends Peuple{
 		this.nom = "Prof";
 	}
 
-	int attaque(int nbrBoulots){
+	int attaque(int nbrBoulots, int niveau , String type){
 		return nbrBoulots;
 	}
 	

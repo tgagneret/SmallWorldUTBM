@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Bilingues {
+public class Bilingues extends Pouvoir{
 
 	public Bilingues(){
 		super();

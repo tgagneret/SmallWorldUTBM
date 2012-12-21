@@ -12,7 +12,7 @@ public class Surdoues extends Peuple{
 		
 	}
 
-	int attaque(int nbrBoulots){
+	int attaque(int nbrBoulots, int niveau , String type){
 		return nbrBoulots;
 	}
 	
@@ -21,6 +21,7 @@ public class Surdoues extends Peuple{
 	}
 
 	boolean isPossible(int x , int y){
+		
 		/* CODE */
 	}
 

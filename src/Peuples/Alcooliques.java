@@ -13,7 +13,7 @@ public class Alcooliques extends Peuple{
 		
 	}
 	
-	int attaque(int nbrBoulots){
+	int attaque(int nbrBoulots, int niveau , String type){
 		
 		return nbrBoulots;
 	}
@@ -23,6 +23,7 @@ public class Alcooliques extends Peuple{
 	}
 	
 	boolean isPossible(int x , int y){
+		
 		
 	/* CODE */
 		

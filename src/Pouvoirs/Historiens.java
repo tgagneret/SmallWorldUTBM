@@ -1,6 +1,6 @@
 package Pouvoirs;
 
-public class Historiens {
+public class Historiens extends Pouvoir {
 
 	public Historiens(){
 		super();
