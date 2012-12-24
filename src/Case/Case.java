@@ -1,4 +1,5 @@
 package Case;
+import Joueur.Joueur;
 
 public class Case {
 	
@@ -8,6 +9,9 @@ public class Case {
 	private Joueur player;
 	private int boulots;
 	private boolean declin;
+	private boolean lock; /* Administratifs verouille 2 UVs */
+	
+	/* Name : LO , Level : 43 , Kind : CS */
 	
 	public Case(String name, int level , String kind){
 		nom = name;

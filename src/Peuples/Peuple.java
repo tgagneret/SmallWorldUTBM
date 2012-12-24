@@ -3,7 +3,7 @@ package Peuples;
  * Ex : Alcooliques Alcoolique = new Alcooliques()
  */
 
-abstract class Peuple {
+abstract public class Peuple {
 	
 	protected int boulots;
 	protected String nom;

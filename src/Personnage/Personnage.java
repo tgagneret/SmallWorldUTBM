@@ -1,6 +1,6 @@
 package Personnage;
-import Peuples;
-import Pouvoirs;
+import Peuples.Peuple;
+import Pouvoirs.Pouvoir;
 
 public class Personnage {
 	

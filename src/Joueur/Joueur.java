@@ -1,4 +1,5 @@
 package Joueur;
+import Personnage.Personnage;
 
 public class Joueur {
 
