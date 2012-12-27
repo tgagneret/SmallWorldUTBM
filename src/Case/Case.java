@@ -33,6 +33,18 @@ public class Case {
 		lock = false;
 	}
 	
+	public String get_nom(){
+		return nom;
+	}
+	
+	public int get_niveau(){
+		return niveau;
+	}
+	
+	public String get_tyoe(){
+		return type;
+	}
+	
 	public boolean combat(int nbrBoulots, Joueur attaquant){
 		/* CODE */
 	}

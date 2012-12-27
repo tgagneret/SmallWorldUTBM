@@ -221,11 +221,30 @@ public class MainWindow extends javax.swing.JFrame{
 	  bouton0_0.addActionListener(new button0_0_clicked(bouton0_0));
 	  bouton0_1.addActionListener(new button0_1_clicked(bouton0_1));
 	  bouton0_2.addActionListener(new button0_2_clicked(bouton0_2));
-	 // bouton0_3.addActionListener(new button0_3_clicked(bouton0_3));
-	  //bouton0_4.addActionListener(new button0_4_clicked(bouton0_4));
-	 // bouton0_5.addActionListener(new button0_5_clicked(bouton0_5));
+	  bouton0_3.addActionListener(new button0_3_clicked(bouton0_3));
+	  bouton0_4.addActionListener(new button0_4_clicked(bouton0_4));
+	  bouton0_5.addActionListener(new button0_5_clicked(bouton0_5));
 	  
-	    
+	  bouton1_0.addActionListener(new button1_0_clicked(bouton1_0));
+	  bouton1_1.addActionListener(new button1_1_clicked(bouton1_1));
+	  bouton1_2.addActionListener(new button1_2_clicked(bouton1_2));
+	  bouton1_3.addActionListener(new button1_3_clicked(bouton1_3));
+	  bouton1_4.addActionListener(new button1_4_clicked(bouton1_4));
+	  bouton1_5.addActionListener(new button1_5_clicked(bouton1_5));
+	  
+	  bouton2_0.addActionListener(new button2_0_clicked(bouton2_0));
+	  bouton2_1.addActionListener(new button2_1_clicked(bouton2_1));
+	  bouton2_2.addActionListener(new button2_2_clicked(bouton2_2));
+	  bouton2_3.addActionListener(new button2_3_clicked(bouton2_3));
+	  bouton2_4.addActionListener(new button2_4_clicked(bouton2_4));
+	  bouton2_5.addActionListener(new button2_5_clicked(bouton2_5));
+	  
+	  bouton3_0.addActionListener(new button3_0_clicked(bouton3_0));
+	  bouton3_1.addActionListener(new button3_1_clicked(bouton3_1));
+	  bouton3_2.addActionListener(new button3_2_clicked(bouton3_2));
+	  bouton3_3.addActionListener(new button3_3_clicked(bouton3_3));
+	  bouton3_4.addActionListener(new button3_4_clicked(bouton3_4));
+	  bouton3_5.addActionListener(new button3_5_clicked(bouton3_5));
 	   
 		
 	}
