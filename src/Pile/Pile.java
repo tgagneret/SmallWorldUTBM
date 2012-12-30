@@ -1,6 +1,8 @@
 package Pile;
 import java.util.ArrayList;
 import Personnage.*;
+import Pouvoirs.*;
+import Peuples.*;
 
 public class Pile {
 
@@ -10,10 +12,15 @@ public class Pile {
 	private ArrayList <Personnage>  en_jeu = new ArrayList<Personnage>();
 	private ArrayList <Integer> credits = new ArrayList<Integer>();
 	
+	
+	
 	public Pile(){
+			
 		
 		/* CODE */
 	}
+	
+	
 	
 	public boolean supprimer(int delete){
 		/* CODE */
