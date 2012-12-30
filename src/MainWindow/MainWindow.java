@@ -1,4 +1,5 @@
 package MainWindow;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.event.*;
@@ -6,6 +7,9 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import Signaux.*;
+import Case.Case;
+import Map.*;
+import java.util.ArrayList;
 
 
 public class MainWindow extends javax.swing.JFrame{
@@ -26,33 +30,33 @@ public class MainWindow extends javax.swing.JFrame{
     
     /* Creer une fonction qui renvoie un string a partir de l'UV choisie (avec html)*/
 
-    JButton bouton0_0 = new JButton("<html>LO43<br/>nbrBoulots:0<br/>Joueurs : </html>");
-    JButton bouton0_1 = new JButton("MT45") ;
-    JButton bouton0_2 = new JButton("GE06");
-    JButton bouton0_3 = new JButton("LE03");
-    JButton bouton0_4 = new JButton("PS22");
-    JButton bouton0_5 = new JButton("MG00");
+    JButton bouton0_0 = new JButton();
+    JButton bouton0_1 = new JButton();
+    JButton bouton0_2 = new JButton();
+    JButton bouton0_3 = new JButton();
+    JButton bouton0_4 = new JButton();
+    JButton bouton0_5 = new JButton();
     
-    JButton bouton1_0 = new JButton("LO43");
-    JButton bouton1_1 = new JButton("MT45");
-    JButton bouton1_2 = new JButton("GE06");
-    JButton bouton1_3 = new JButton("LE03");
-    JButton bouton1_4 = new JButton("PS22");
-    JButton bouton1_5 = new JButton("MG00");
+    JButton bouton1_0 = new JButton();
+    JButton bouton1_1 = new JButton();
+    JButton bouton1_2 = new JButton();
+    JButton bouton1_3 = new JButton();
+    JButton bouton1_4 = new JButton();
+    JButton bouton1_5 = new JButton();
     
-    JButton bouton2_0 = new JButton("LO43");
-    JButton bouton2_1 = new JButton("MT45");
-    JButton bouton2_2 = new JButton("GE06");
-    JButton bouton2_3 = new JButton("LE03");
-    JButton bouton2_4 = new JButton("PS22");
-    JButton bouton2_5 = new JButton("MG00");
+    JButton bouton2_0 = new JButton();
+    JButton bouton2_1 = new JButton();
+    JButton bouton2_2 = new JButton();
+    JButton bouton2_3 = new JButton();
+    JButton bouton2_4 = new JButton();
+    JButton bouton2_5 = new JButton();
     
-    JButton bouton3_0 = new JButton("LO43");
-    JButton bouton3_1 = new JButton("MT45");
-    JButton bouton3_2 = new JButton("GE06");
-    JButton bouton3_3 = new JButton("LE03");
-    JButton bouton3_4 = new JButton("PS22");
-    JButton bouton3_5 = new JButton("MG00");
+    JButton bouton3_0 = new JButton();
+    JButton bouton3_1 = new JButton();
+    JButton bouton3_2 = new JButton();
+    JButton bouton3_3 = new JButton();
+    JButton bouton3_4 = new JButton();
+    JButton bouton3_5 = new JButton();
     
     /* Options */
     
@@ -94,17 +98,29 @@ public class MainWindow extends javax.swing.JFrame{
    JPanel stat = new JPanel(stats);
    JPanel action = new JPanel(actions);
    JPanel choix = new JPanel(choice);
-	
-	
-	public MainWindow() {
+   
+   JButton[][] boutons = new JButton [4][6];
+   
+	public MainWindow(Map world) {
 		super();
 		this.setTitle("Small World UTBM");
-	    this.setSize(1100, 550);
+	    this.setSize(1200, 650);
 	    this.setLocationRelativeTo(null);
-	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
 	    initComponents();
-	    //this.setVisible(true);
+	    
+		
+/* Generer le texte des boutons et les ajoutes à la grille*/
+	    
+	    for (int lignes = 0 ; lignes < 4 ; lignes++){
+	    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
+	    		
+	    		boutons[lignes][colonnes].setText(set_button(world.get_case(lignes, colonnes)));
+	    		content.add(boutons[lignes][colonnes]);
+	    		
+	    	}
+	    }
 	    
 	}    
 	    
@@ -113,43 +129,42 @@ public class MainWindow extends javax.swing.JFrame{
 	
 	private void initComponents(){
 		
+	/* On ajoute les boutons au tableau */	
+		
+		boutons[0][0] = bouton0_0;
+	    boutons[0][1] = bouton0_1;
+	    boutons[0][2] = bouton0_2;
+	    boutons[0][3] = bouton0_3;
+	    boutons[0][4] = bouton0_4;
+	    boutons[0][5] = bouton0_5;
+	    
+	    boutons[1][0] = bouton1_0;
+	    boutons[1][1] = bouton1_1;
+	    boutons[1][2] = bouton1_2;
+	    boutons[1][3] = bouton1_3;
+	    boutons[1][4] = bouton1_4;
+	    boutons[1][5] = bouton1_5;
+	    
+	    boutons[2][0] = bouton2_0;
+	    boutons[2][1] = bouton2_1;
+	    boutons[2][2] = bouton2_2;
+	    boutons[2][3] = bouton2_3;
+	    boutons[2][4] = bouton2_4;
+	    boutons[2][5] = bouton2_5;
+	    
+	    boutons[3][0] = bouton3_0;
+	    boutons[3][1] = bouton3_1;
+	    boutons[3][2] = bouton3_2;
+	    boutons[3][3] = bouton3_3;
+	    boutons[3][4] = bouton3_4;
+	    boutons[3][5] = bouton3_5;
+	 
+
+	    
 	/* Grid content */	    
 	    
 	    TitledBorder map_title = new TitledBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black),"Map");
 	    content.setBorder(map_title);
-	    
-	   /* 1ere ligne */
-	    content.add(bouton0_0);
-	    content.add(bouton0_1);
-	    content.add(bouton0_2);
-	    content.add(bouton0_3);
-	    content.add(bouton0_4);
-	    content.add(bouton0_5);
-	    
-	    
-	    /* 2eme ligne */
-	    content.add(bouton1_0);
-	    content.add(bouton1_1);
-	    content.add(bouton1_2);
-	    content.add(bouton1_3);
-	    content.add(bouton1_4);
-	    content.add(bouton1_5);
-	    
-	    /* 3eme ligne */
-	    content.add(bouton2_0);
-	    content.add(bouton2_1);
-	    content.add(bouton2_2);
-	    content.add(bouton2_3);
-	    content.add(bouton2_4);
-	    content.add(bouton2_5);
-	    
-	    /* 4eme ligne */
-	    content.add(bouton3_0);
-	    content.add(bouton3_1);
-	    content.add(bouton3_2);
-	    content.add(bouton3_3);
-	    content.add(bouton3_4);
-	    content.add(bouton3_5);
 
 	/* Grid choix */
 	    choix.add(oui);
@@ -250,6 +265,18 @@ public class MainWindow extends javax.swing.JFrame{
 	}
 	
 	
+	/* Génération texte bouton */
+	
+	public String set_button(Case place){
+		
+		/* CODE pour generer le texte sur un bouton */
+		
+		String texte = "<html>" + place.get_nom() + place.get_niveau() + 
+				"<br>Boulots : 0<br>Joueur: aucun" + "</html>";
+		
+		return texte;
+		
+	}
 	
 	
 	/* Affichage */

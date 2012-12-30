@@ -24,7 +24,6 @@ public class Alcooliques extends Peuple{
 	
 	boolean isPossible(int x , int y){
 		
-		
 	/* CODE */
 		
 	}

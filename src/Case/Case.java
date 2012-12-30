@@ -20,6 +20,7 @@ public class Case {
 		player = null;
 		boulots = 0;
 		declin = false;
+		lock = false;
 		
 	}
 	
@@ -28,7 +29,7 @@ public class Case {
 		niveau = 0;
 		type = "Case vide";
 		player = null;
-		boulots = -1;
+		boulots = 0;
 		declin = false;
 		lock = false;
 	}
@@ -41,12 +42,13 @@ public class Case {
 		return niveau;
 	}
 	
-	public String get_tyoe(){
+	public String get_type(){
 		return type;
 	}
 	
 	public boolean combat(int nbrBoulots, Joueur attaquant){
 		/* CODE */
+		return true; // Pour tests
 	}
 	
 	
@@ -59,6 +61,7 @@ public class Case {
 		player = null;
 		boulots = 0;
 		declin = false;
+		lock = false;
 		
 	}
 
