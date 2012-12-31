@@ -46,6 +46,18 @@ public class Case {
 		return type;
 	}
 	
+	public Joueur get_joueur(){
+		return player;
+	}
+	
+	public boolean get_lock(){
+		return lock;
+	}
+	
+	public boolean get_declin(){
+		return declin;
+	}
+	
 	public boolean combat(int nbrBoulots, Joueur attaquant){
 		/* CODE */
 		return true; // Pour tests

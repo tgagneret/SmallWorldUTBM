@@ -1,5 +1,8 @@
 package Pile;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import Personnage.*;
 import Pouvoirs.*;
 import Peuples.*;
@@ -14,73 +17,57 @@ public class Pile {
 	
 	public Pile(){
 			
-		/* Peuples */
+		disponible = create();
 		
-				
-		/*Administratifs administratif = new Administratifs();
-		Alcooliques alcoolique = new Alcooliques();
-		Boulets boulet = new Boulets();
-		Glandeurs glandeur = new Glandeurs();
-		IUTs iut = new IUTs();
-		Profs prof = new Profs();
-		Surdoues surdoue = new Surdoues();
-		TC5 tc5 = new TC5();
-		Thesards thesard = new Thesards();
-		Tricheurs tricheur = new Tricheurs();*/	
-		
-		/* Pouvoirs */
-		
-		/*Bilingues bilingue = new Bilingues();
-		Chimistes chimiste = new Chimistes();
-		Economistes economiste = new Economistes();
-		Electroniciens elctronicien = new Electroniciens();
-		Historiens historien = new Historiens();
-		Informaticiens informaticien = new Informaticiens();
-		Managers manager = new Managers();
-		Matheux matheux = new Matheux();
-		Mecaniciens mecanicien = new Mecaniciens();
-		Philosophes philosophe = new Philosophes();
-		Physiciens physicien = new Physiciens();*/
-		
-		
-		
-		
-		/* Personnages */
-		
+		for(int i = 0 ; i < 11 ; ++i){
+			credits.add(i);
+		}
 
 	}
 	
 	public ArrayList <Personnage> create(){
 		
-		Peuple[] tab_peuple = new Peuple[10];
+		ArrayList <Peuple> tab_peuples = new ArrayList<Peuple>();
+		ArrayList <Pouvoir> tab_pouvoirs = new ArrayList<Pouvoir>();
 		
-		tab_peuple[0] = new Administratifs();
-		tab_peuple[1] = new Alcooliques();
-		tab_peuple[2] = new Boulets();
-		tab_peuple[3] = new Glandeurs();
-		tab_peuple[4] = new IUTs();
-		tab_peuple[5] = new Profs();
-		tab_peuple[6] = new Surdoues();
-		tab_peuple[7] = new TC5();
-		tab_peuple[8] = new Thesards();
-		tab_peuple[9] = new Tricheurs();
-		
-		Pouvoir[] tab_pouvoir = new Pouvoir[11];
-		
-		tab_pouvoir[0] = new Bilingues();
-		tab_pouvoir[1] = new Chimistes();
-		tab_pouvoir[2] = new Economistes();
-		tab_pouvoir[3] = new Electroniciens();
-		tab_pouvoir[4] = new Historiens();
-		tab_pouvoir[5] = new Informaticiens();
-		tab_pouvoir[6] = new Managers();
-		tab_pouvoir[7] = new Matheux();
-		tab_pouvoir[8] = new Mecaniciens();
-		tab_pouvoir[9] = new Philosophes();
-		tab_pouvoir[10] = new Physiciens();
+		tab_peuples.add(new Administratifs());
+		tab_peuples.add(new Alcooliques());
+		tab_peuples.add(new Boulets());
+		tab_peuples.add(new Glandeurs());
+		tab_peuples.add(new IUTs());
+		tab_peuples.add(new Profs());
+		tab_peuples.add(new Surdoues());
+		tab_peuples.add(new TC5());
+		tab_peuples.add(new Thesards());
+		tab_peuples.add(new Tricheurs());
 		
 		
-		/* Melanger pour faire les persos */
+		tab_pouvoirs.add(new Bilingues());
+		tab_pouvoirs.add(new Chimistes());
+		tab_pouvoirs.add(new Economistes());
+		tab_pouvoirs.add(new Electroniciens());
+		tab_pouvoirs.add(new Historiens());
+		tab_pouvoirs.add(new Informaticiens());
+		tab_pouvoirs.add(new Managers());
+		tab_pouvoirs.add(new Matheux());
+		tab_pouvoirs.add(new Mecaniciens());
+		tab_pouvoirs.add(new Philosophes());
+		tab_pouvoirs.add(new Physiciens());
+		
+		/* On mélange les listes */
+		
+		Collections.shuffle(tab_peuples);
+		Collections.shuffle(tab_pouvoirs);
+		
+		/* On créé des persos aléatoires */
+		
+		ArrayList <Personnage> perso = new ArrayList<Personnage>();
+		
+		for(int i = 0 ; i < 11 ; ++i){
+			perso.add(new Personnage(tab_peuples.get(i),tab_pouvoirs.get(i)));
+		}
+		
+		return perso;
 		
 	}
 	

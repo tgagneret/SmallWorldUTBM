@@ -19,16 +19,18 @@ public class Personnage {
 	
 	/* Exemple LO43 : LO (nom) , 43 (niveau) , TM (type) */
 	
-	int attaque(int nbrBoulots,int niveau , String type , String nom){
+	public int attaque(int nbrBoulots,int niveau , String type , String nom){
 		/* CODE */
 	}
 	
-	int defense (int nbrBoulots){
+	public int defense (int nbrBoulots){
 		/* CODE */
 	}
 	
-	boolean isPossible(int x , int y){
+	public boolean isPossible(int x , int y){
 		/* CODE */
 	}
+	
+	
 
 }

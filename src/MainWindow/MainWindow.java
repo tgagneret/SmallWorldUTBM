@@ -21,6 +21,18 @@ public class MainWindow extends javax.swing.JFrame{
     Box hb = Box.createHorizontalBox();
     Box myPerso = Box.createVerticalBox();
     
+    /* Menu bar*/
+    
+    JMenuBar barre = new JMenuBar();
+    
+    JMenu jeu = new JMenu("Jeu");
+    
+    JMenuItem aide = new JMenuItem("Aide",
+            KeyEvent.VK_T);
+
+    
+    
+    
     /* Barre d'état */
     JLabel status = new JLabel();   
     
@@ -98,6 +110,7 @@ public class MainWindow extends javax.swing.JFrame{
    JPanel stat = new JPanel(stats);
    JPanel action = new JPanel(actions);
    JPanel choix = new JPanel(choice);
+
    
    JButton[][] boutons = new JButton [4][6];
    
@@ -192,6 +205,19 @@ public class MainWindow extends javax.swing.JFrame{
 	    action.add(question);
 	    action.add(choix);
 	 
+	 /* Menu bar */
+	    
+	    jeu.setMnemonic(KeyEvent.VK_J);
+	    jeu.getAccessibleContext().setAccessibleDescription(
+	            "Option du jeu");
+	    barre.add(jeu);
+	    
+
+	   aide.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.ALT_MASK));
+	   aide.getAccessibleContext().setAccessibleDescription("Aide pour le jeu");
+	   jeu.add(aide);
+	    
+	setJMenuBar(barre);
 
 	/* Barre des statuts */
 	    
@@ -228,6 +254,14 @@ public class MainWindow extends javax.swing.JFrame{
 	  non.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
 				// code 
+			} 
+		});
+	  
+	  /* Signal aide */
+	  
+	  aide.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) { 
+				/* CODE */
 			} 
 		}); 
 	  
@@ -277,6 +311,8 @@ public class MainWindow extends javax.swing.JFrame{
 		return texte;
 		
 	}
+	
+	/* Verouille les boutons */
 	
 	public void lock_buttons(boolean lock){
 		

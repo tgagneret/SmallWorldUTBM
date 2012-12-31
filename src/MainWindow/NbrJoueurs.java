@@ -9,16 +9,22 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 
+import Personnage.Personnage;
+import Peuples.Peuple;
+
 
 
 
 public class NbrJoueurs extends javax.swing.JDialog{
+	
+	private ArrayList <String> gamers = new ArrayList<String>();
 	
 /* Création des composants */
 	
@@ -130,10 +136,17 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	    valider.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
 				
-				/* Utiliser fonction qui changera nbr de joueur (Verifier que les noms sont différents */
+				// Utiliser fonction qui changera nbr de joueur (Verifier que les noms sont différents)
+				gamers.clear();
+				for(int nombreJoueur = 0 ;nombreJoueur < (int) choice.getValue() ; ++nombreJoueur){
+					
+					gamers.add(nom_joueur[nombreJoueur].getText());
+								
+				}
+				
 				
 			} 
-		}); 
+		});
 	    
 	    
 	    /* Au changement du nombre de joueurs */
@@ -164,13 +177,67 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	}
 	
 
+	/* Retourne liste de joueurs */
 	
 	
-     
+	public ArrayList <String> return_player(){
+		return gamers;
+	}
+	
+	
+	/*public ArrayList <String> return_player(){
+		this.setVisible(true);
+		// Signal valider
+		
+		final ArrayList <String> gamers = new ArrayList<String>();
+		
+		valider.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) { 			
+				gamers.clear();
+				for(int nombreJoueur = 0 ;nombreJoueur < (int) choice.getValue() ; ++nombreJoueur){
+					
+					gamers.add(nom_joueur[nombreJoueur].getText());
+					//Ajouter les joueurs au tableau et verifier si pas 2 pareil
+
+								
+				}
+				
+				for(String  value : gamers){
+					System.out.println(value);
+				}
+				
+				
+			} 
+		}); 
+		
+		while (gamers.isEmpty()){
+			
+		}
+		
+			
+		System.out.println("new");
+		
+		for(String  value : gamers){
+			System.out.println(value);
+		}
+		
+		return gamers;
+		
+		
+	}
+	*/
+	/* Retourne nombre de joueurs */
+	
+	
+	
     /* Affichage */
     
 	public void afficher(){		
 		this.setVisible(true);
+		while(gamers.isEmpty()){
+			System.out.println("");
+		}
+		this.setVisible(false);
 	}
 	
 	
