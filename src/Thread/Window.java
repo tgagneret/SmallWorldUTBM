@@ -8,8 +8,8 @@ public class Window extends Thread{
 
 	MainWindow fen;
 	
-	public Window(Map carte){
-		fen = new MainWindow(carte);
+	public Window(){
+		fen = new MainWindow();
 	}
 	
 	public void run(){

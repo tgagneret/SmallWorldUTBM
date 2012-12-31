@@ -4,11 +4,12 @@ import Case.*;
 
 public class Map {
 
+	private volatile static Map single;
 	private Case[][] tabCase = new Case [4][6];
 	
 	
 	
-	public Map(){
+	private Map(){
 		
 		 /* Modele : Case(String name, int level , String kind)
 		  * Exemple LO43 : LO (nom) , 43 (niveau) , TM (type)
@@ -78,6 +79,17 @@ public class Map {
 
 		}
 		
+	
+	public static Map getInstance(){
+	    if(single == null){
+	      synchronized(Map.class){
+	        if(single == null)
+	          single = new Map();
+	      }
+	    }      
+	    return single;
+	  }
+	
 	
 		public Case get_case(int ligne, int colonne){
 			return tabCase[ligne][colonne];

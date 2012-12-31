@@ -10,11 +10,10 @@ public class Main {
 	
 	public static void main(String[] args) {
 			
-		Map carte = new Map();
+		//Map carte;// = new Map();
 		
-		Window fenetre = new Window(carte);
+		Window fenetre = new Window();
 		fenetre.run();
-
 		
 		
 	}

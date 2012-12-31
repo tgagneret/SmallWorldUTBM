@@ -1,4 +1,5 @@
 package Peuples;
+import Map.*;
 
 /* Administratifs : Verrouille deux Uvs 
  * Pas de bonus attaque/defense
@@ -20,7 +21,7 @@ public class Administratifs extends Peuple{
 		return nbrBoulots;
 	}
 	
-	public boolean isPossible(int x , int y){
+	public boolean isPossible(int x , int y){	
 		/* CODE */
 	}
 

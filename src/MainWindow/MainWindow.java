@@ -101,7 +101,7 @@ public class MainWindow extends javax.swing.JFrame{
    
    JButton[][] boutons = new JButton [4][6];
    
-	public MainWindow(Map world) {
+	public MainWindow() {
 		super();
 		this.setTitle("Small World UTBM");
 	    this.setSize(1200, 650);
@@ -116,7 +116,7 @@ public class MainWindow extends javax.swing.JFrame{
 	    for (int lignes = 0 ; lignes < 4 ; lignes++){
 	    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
 	    		
-	    		boutons[lignes][colonnes].setText(set_button(world.get_case(lignes, colonnes)));
+	    		boutons[lignes][colonnes].setText(set_button(Map.getInstance().get_case(lignes, colonnes)));
 	    		content.add(boutons[lignes][colonnes]);
 	    		
 	    	}
@@ -275,6 +275,17 @@ public class MainWindow extends javax.swing.JFrame{
 				"<br>Boulots : 0<br>Joueur: aucun" + "</html>";
 		
 		return texte;
+		
+	}
+	
+	public void lock_buttons(boolean lock){
+		
+		for (int lignes = 0 ; lignes < 4 ; lignes++){
+	    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
+	    		
+	    		boutons[lignes][colonnes].setEnabled(lock);	    				
+	    	}
+		}    	
 		
 	}
 	
