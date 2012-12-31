@@ -29,4 +29,9 @@ public class Alcooliques extends Peuple{
 		
 	}
 	
+	public String get_description(){
+		return "L'alcoolique ne peut capturer que les cases après celles qui sont adjacentes";
+";
+	}
+	
 }

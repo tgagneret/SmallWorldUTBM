@@ -1,8 +1,8 @@
 package MainWindow;
 import javax.swing.Box;
-import javax.swing.JDialog;
 import java.awt.*;
 import java.awt.event.*;
+
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -63,6 +63,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
    	/* Label */
     Label question = new Label("Veuillez choisir le nombre de joueurs");
     Label bienvenue = new Label("Bienvenue sur le jeu Small World UTBM");
+    Label impossible = new Label("Attention les joueurs doivent avoir des noms différents");
     
     Label [] label_joueur = new Label[4];
     
@@ -103,6 +104,10 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	    label_joueur[2].setVisible(false);
 	    label_joueur[3].setVisible(false);
 	    
+	    impossible.setForeground(Color.RED);
+	    impossible.setVisible(false);
+	    
+	    
 	    for(int value = 0 ; value < 4 ; ++ value){
 	    	content.add(label_joueur[value]);
 	    	content.add(nom_joueur[value]);
@@ -116,6 +121,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	    
 	    structure.add(bienvenue);
 	    structure.add(joueur);
+	    structure.add(impossible);
 	    
 	    nbrJoueur.add(content);
 	    
@@ -136,13 +142,38 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	    valider.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
 				
-				// Utiliser fonction qui changera nbr de joueur (Verifier que les noms sont différents)
 				gamers.clear();
-				for(int nombreJoueur = 0 ;nombreJoueur < (int) choice.getValue() ; ++nombreJoueur){
-					
-					gamers.add(nom_joueur[nombreJoueur].getText());
-								
+				
+				boolean check = false;
+				
+				/* On verifie que le nom des joueurs est différent */
+				
+				for(int i = 0 ; i < (int) choice.getValue(); ++i){
+					for(int j = i+1 ; j < (int) choice.getValue(); ++j){
+						if (nom_joueur[i].getText().toString().equals(nom_joueur[j].getText().toString())){
+							
+							check = true;
+						}
+							
+					}
 				}
+				
+				// Utiliser fonction qui changera nbr de joueur (Verifier que les noms sont différents)
+				
+				if(check == false){
+					
+					for(int nombreJoueur = 0 ;nombreJoueur < (int) choice.getValue() ; ++nombreJoueur){
+						
+						gamers.add(nom_joueur[nombreJoueur].getText());
+									
+					}
+				}
+				else{
+					impossible.setVisible(true);
+					valider.setText("Valider : Attention !");
+				}
+				
+				
 				
 				
 			} 
@@ -163,7 +194,6 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	    				 
 	    			 }
 	    			 else{
-	    				 
 	    				 label_joueur[nombreJoueur].setVisible(false);
 	    				 nom_joueur[nombreJoueur].setVisible(false);
 	    				 
@@ -184,48 +214,6 @@ public class NbrJoueurs extends javax.swing.JDialog{
 		return gamers;
 	}
 	
-	
-	/*public ArrayList <String> return_player(){
-		this.setVisible(true);
-		// Signal valider
-		
-		final ArrayList <String> gamers = new ArrayList<String>();
-		
-		valider.addActionListener(new ActionListener() { 
-			public void actionPerformed(ActionEvent e) { 			
-				gamers.clear();
-				for(int nombreJoueur = 0 ;nombreJoueur < (int) choice.getValue() ; ++nombreJoueur){
-					
-					gamers.add(nom_joueur[nombreJoueur].getText());
-					//Ajouter les joueurs au tableau et verifier si pas 2 pareil
-
-								
-				}
-				
-				for(String  value : gamers){
-					System.out.println(value);
-				}
-				
-				
-			} 
-		}); 
-		
-		while (gamers.isEmpty()){
-			
-		}
-		
-			
-		System.out.println("new");
-		
-		for(String  value : gamers){
-			System.out.println(value);
-		}
-		
-		return gamers;
-		
-		
-	}
-	*/
 	/* Retourne nombre de joueurs */
 	
 	
@@ -234,9 +222,19 @@ public class NbrJoueurs extends javax.swing.JDialog{
     
 	public void afficher(){		
 		this.setVisible(true);
-		while(gamers.isEmpty()){
-			System.out.println("");
-		}
+		
+		/* Tant que le joueur a pas validé */
+		do{
+			try{
+				Thread.sleep(100);
+			}
+			catch(InterruptedException e){
+				System.out.println("InterruptedException caught"); 
+			}
+			
+		}while(gamers.isEmpty());
+		
+		
 		this.setVisible(false);
 	}
 	

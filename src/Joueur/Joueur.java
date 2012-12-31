@@ -1,5 +1,6 @@
 package Joueur;
 import Personnage.Personnage;
+import Map.*;
 
 public class Joueur {
 
@@ -29,7 +30,10 @@ public class Joueur {
 	}
 	
 	public boolean isPossible(int x, int y){
+		
 		/* CODE */
+		
+		
 	}
 	
 }

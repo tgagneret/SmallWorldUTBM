@@ -8,7 +8,7 @@ public class Surdoues extends Peuple{
 	
 	public Surdoues(){
 		super();
-		this.nom = "Surdoués";
+		this.nom = "Surdoué";
 		
 	}
 
@@ -23,6 +23,10 @@ public class Surdoues extends Peuple{
 	public boolean isPossible(int x , int y){
 		
 		/* CODE */
+	}
+	
+	public String get_description(){
+		return "Le surdoué peut capturer parmi les adjacentes et les adjacentes aux adjacentes";
 	}
 
 }

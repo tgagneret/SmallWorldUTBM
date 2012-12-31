@@ -2,15 +2,15 @@ package Peuples;
 
 /* IUT : -1 pratique, +1 théorique (attaque) */
 
-public class IUTs extends Peuple{
+public class IUT extends Peuple{
 	
-	public IUTs(){
+	public IUT(){
 		super();
-		this.nom = "IUT";
+		this.nom = "IUTien";
 		
 	}
 
-	public int attaque(int nbrBoulots){
+	public int attaque(int nbrBoulots, int niveau , String type){
 		return nbrBoulots;
 	}
 	
@@ -20,6 +20,11 @@ public class IUTs extends Peuple{
 	
 	public boolean isPossible(int x , int y){
 		/* CODE */
+		
+	}
+	
+	public String get_description(){
+		return "";
 	}
 	
 }

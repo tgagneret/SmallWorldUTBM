@@ -34,7 +34,7 @@ public class Pile {
 		tab_peuples.add(new Alcooliques());
 		tab_peuples.add(new Boulets());
 		tab_peuples.add(new Glandeurs());
-		tab_peuples.add(new IUTs());
+		tab_peuples.add(new IUT());
 		tab_peuples.add(new Profs());
 		tab_peuples.add(new Surdoues());
 		tab_peuples.add(new TC5());
@@ -63,7 +63,7 @@ public class Pile {
 		
 		ArrayList <Personnage> perso = new ArrayList<Personnage>();
 		
-		for(int i = 0 ; i < 11 ; ++i){
+		for(int i = 0 ; i < 10 ; ++i){
 			perso.add(new Personnage(tab_peuples.get(i),tab_pouvoirs.get(i)));
 		}
 		
@@ -72,13 +72,21 @@ public class Pile {
 	}
 	
 	
+	public Personnage get_Personnage(int indice){
+		return disponible.get(indice);
+	}
 	
-	public boolean supprimer(int delete){
-		/* CODE */
+	public int get_credit(int indice){
+		return credits.get(indice);
+	}
+	
+	
+	/*public boolean supprimer(int delete){
+		// CODE 
 	}
 	
 	public boolean ajouter(Personnage perso){
-		/* CODE */
-	}
+		// CODE
+	}*/
 	
 }

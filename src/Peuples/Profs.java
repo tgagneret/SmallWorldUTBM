@@ -17,8 +17,13 @@ public class Profs extends Peuple{
 	
 	public int defense(int nbrBoulots){
 		return nbrBoulots + 1;
-	}	
+	}
+	
 	public boolean isPossible(int x, int y){
 		/* CODE */
+	}
+	
+	public String get_description(){
+		return "";
 	}
 }

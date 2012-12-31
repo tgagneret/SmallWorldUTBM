@@ -10,7 +10,7 @@ public class Tricheurs extends Peuple{
 	
 	public Tricheurs(){
 		super();
-		this.nom = "Tricheurs";
+		this.nom = "Tricheur";
 		this.boulots -= 2;
 	}
 	
@@ -24,6 +24,10 @@ public class Tricheurs extends Peuple{
 	
 	public boolean isPossible(int x, int y){
 		/* CODE */
+	}
+	
+	public String get_description(){
+		return "";
 	}
 	
 }

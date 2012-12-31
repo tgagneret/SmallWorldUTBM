@@ -11,6 +11,10 @@ public abstract class Pouvoir {
 		type = "";
 	}
 	
+	public String get_nom(){
+		return nom;
+	}
+	
 	/* Ne prend que le type (pas besoin du nombre) */
 	public abstract int attaque(String type);
 }

@@ -22,4 +22,8 @@ public class Thesards extends Peuple{
 		/* CODE */
 	}
 	
+	public String get_description(){
+		return "";
+	}
+	
 }

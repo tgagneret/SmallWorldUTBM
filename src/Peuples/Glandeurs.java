@@ -9,7 +9,7 @@ public class Glandeurs extends Peuple{
 	
 	public Glandeurs(){
 		super();
-		this.nom = "Glandeurs";
+		this.nom = "Glandeur";
 		
 	}
 
@@ -23,6 +23,10 @@ public class Glandeurs extends Peuple{
 	
 	public boolean isPossible(int x , int y){
 		/* CODE */
+	}
+	
+	public String get_description(){
+		return "";
 	}
 	
 }

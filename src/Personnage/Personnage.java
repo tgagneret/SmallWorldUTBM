@@ -17,6 +17,15 @@ public class Personnage {
 		
 	}
 	
+	
+	public Peuple get_peuple(){
+		return peup;
+	}
+	
+	public Pouvoir get_pouvoir(){
+		return pouv;
+	}
+	
 	/* Exemple LO43 : LO (nom) , 43 (niveau) , TM (type) */
 	
 	public int attaque(int nbrBoulots,int niveau , String type , String nom){
@@ -30,6 +39,8 @@ public class Personnage {
 	public boolean isPossible(int x , int y){
 		/* CODE */
 	}
+	
+	
 	
 	
 

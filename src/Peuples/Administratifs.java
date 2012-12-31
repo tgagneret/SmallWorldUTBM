@@ -24,5 +24,9 @@ public class Administratifs extends Peuple{
 	public boolean isPossible(int x , int y){	
 		/* CODE */
 	}
+	public String get_description(){
+		return "L'administratif peut verouiller 2 UVs";
+	}
+	
 
 }

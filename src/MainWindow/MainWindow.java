@@ -36,39 +36,6 @@ public class MainWindow extends javax.swing.JFrame{
     /* Barre d'état */
     JLabel status = new JLabel();   
     
-    	/* Boutons */
-    
-    /* Cases (groupées par ligne)*/
-    
-    /* Creer une fonction qui renvoie un string a partir de l'UV choisie (avec html)*/
-
-    JButton bouton0_0 = new JButton();
-    JButton bouton0_1 = new JButton();
-    JButton bouton0_2 = new JButton();
-    JButton bouton0_3 = new JButton();
-    JButton bouton0_4 = new JButton();
-    JButton bouton0_5 = new JButton();
-    
-    JButton bouton1_0 = new JButton();
-    JButton bouton1_1 = new JButton();
-    JButton bouton1_2 = new JButton();
-    JButton bouton1_3 = new JButton();
-    JButton bouton1_4 = new JButton();
-    JButton bouton1_5 = new JButton();
-    
-    JButton bouton2_0 = new JButton();
-    JButton bouton2_1 = new JButton();
-    JButton bouton2_2 = new JButton();
-    JButton bouton2_3 = new JButton();
-    JButton bouton2_4 = new JButton();
-    JButton bouton2_5 = new JButton();
-    
-    JButton bouton3_0 = new JButton();
-    JButton bouton3_1 = new JButton();
-    JButton bouton3_2 = new JButton();
-    JButton bouton3_3 = new JButton();
-    JButton bouton3_4 = new JButton();
-    JButton bouton3_5 = new JButton();
     
     /* Options */
     
@@ -121,19 +88,13 @@ public class MainWindow extends javax.swing.JFrame{
 	    this.setLocationRelativeTo(null);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
+	    
 	    initComponents();
 	    
 		
 /* Generer le texte des boutons et les ajoutes à la grille*/
 	    
-	    for (int lignes = 0 ; lignes < 4 ; lignes++){
-	    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
-	    		
-	    		boutons[lignes][colonnes].setText(set_button(Map.getInstance().get_case(lignes, colonnes)));
-	    		content.add(boutons[lignes][colonnes]);
-	    		
-	    	}
-	    }
+	    
 	    
 	}    
 	    
@@ -142,37 +103,18 @@ public class MainWindow extends javax.swing.JFrame{
 	
 	private void initComponents(){
 		
-	/* On ajoute les boutons au tableau */	
+	/* On créé les boutons dans le tableau */	
 		
-		boutons[0][0] = bouton0_0;
-	    boutons[0][1] = bouton0_1;
-	    boutons[0][2] = bouton0_2;
-	    boutons[0][3] = bouton0_3;
-	    boutons[0][4] = bouton0_4;
-	    boutons[0][5] = bouton0_5;
-	    
-	    boutons[1][0] = bouton1_0;
-	    boutons[1][1] = bouton1_1;
-	    boutons[1][2] = bouton1_2;
-	    boutons[1][3] = bouton1_3;
-	    boutons[1][4] = bouton1_4;
-	    boutons[1][5] = bouton1_5;
-	    
-	    boutons[2][0] = bouton2_0;
-	    boutons[2][1] = bouton2_1;
-	    boutons[2][2] = bouton2_2;
-	    boutons[2][3] = bouton2_3;
-	    boutons[2][4] = bouton2_4;
-	    boutons[2][5] = bouton2_5;
-	    
-	    boutons[3][0] = bouton3_0;
-	    boutons[3][1] = bouton3_1;
-	    boutons[3][2] = bouton3_2;
-	    boutons[3][3] = bouton3_3;
-	    boutons[3][4] = bouton3_4;
-	    boutons[3][5] = bouton3_5;
-	 
-
+		for (int lignes = 0 ; lignes < 4 ; lignes++){
+	    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
+	    		
+	    		boutons[lignes][colonnes] = new JButton(set_button(Map.getInstance().get_case(lignes, colonnes)));
+	    		content.add(boutons[lignes][colonnes]);
+	    		
+	    	}
+	    }
+		
+		
 	    
 	/* Grid content */	    
 	    
@@ -267,33 +209,33 @@ public class MainWindow extends javax.swing.JFrame{
 	  
 	  /* Signaux cases*/
 	  
-	  bouton0_0.addActionListener(new button0_0_clicked(bouton0_0));
-	  bouton0_1.addActionListener(new button0_1_clicked(bouton0_1));
-	  bouton0_2.addActionListener(new button0_2_clicked(bouton0_2));
-	  bouton0_3.addActionListener(new button0_3_clicked(bouton0_3));
-	  bouton0_4.addActionListener(new button0_4_clicked(bouton0_4));
-	  bouton0_5.addActionListener(new button0_5_clicked(bouton0_5));
+	  boutons[0][0].addActionListener(new button0_0_clicked(boutons[0][0]));
+	  boutons[0][1].addActionListener(new button0_1_clicked(boutons[0][1]));
+	  boutons[0][2].addActionListener(new button0_2_clicked(boutons[0][2]));
+	  boutons[0][3].addActionListener(new button0_3_clicked(boutons[0][3]));
+	  boutons[0][4].addActionListener(new button0_4_clicked(boutons[0][4]));
+	  boutons[0][5].addActionListener(new button0_5_clicked(boutons[0][5]));
 	  
-	  bouton1_0.addActionListener(new button1_0_clicked(bouton1_0));
-	  bouton1_1.addActionListener(new button1_1_clicked(bouton1_1));
-	  bouton1_2.addActionListener(new button1_2_clicked(bouton1_2));
-	  bouton1_3.addActionListener(new button1_3_clicked(bouton1_3));
-	  bouton1_4.addActionListener(new button1_4_clicked(bouton1_4));
-	  bouton1_5.addActionListener(new button1_5_clicked(bouton1_5));
+	  boutons[1][0].addActionListener(new button1_0_clicked(boutons[1][0]));
+	  boutons[1][1].addActionListener(new button1_1_clicked(boutons[1][1]));
+	  boutons[1][2].addActionListener(new button1_2_clicked(boutons[1][2]));
+	  boutons[1][3].addActionListener(new button1_3_clicked(boutons[1][3]));
+	  boutons[1][4].addActionListener(new button1_4_clicked(boutons[1][4]));
+	  boutons[1][5].addActionListener(new button1_5_clicked(boutons[1][5]));
 	  
-	  bouton2_0.addActionListener(new button2_0_clicked(bouton2_0));
-	  bouton2_1.addActionListener(new button2_1_clicked(bouton2_1));
-	  bouton2_2.addActionListener(new button2_2_clicked(bouton2_2));
-	  bouton2_3.addActionListener(new button2_3_clicked(bouton2_3));
-	  bouton2_4.addActionListener(new button2_4_clicked(bouton2_4));
-	  bouton2_5.addActionListener(new button2_5_clicked(bouton2_5));
+	  boutons[2][0].addActionListener(new button2_0_clicked(boutons[2][0]));
+	  boutons[2][1].addActionListener(new button2_1_clicked(boutons[2][1]));
+	  boutons[2][2].addActionListener(new button2_2_clicked(boutons[2][2]));
+	  boutons[2][3].addActionListener(new button2_3_clicked(boutons[2][3]));
+	  boutons[2][4].addActionListener(new button2_4_clicked(boutons[2][4]));
+	  boutons[2][5].addActionListener(new button2_5_clicked(boutons[2][5]));
 	  
-	  bouton3_0.addActionListener(new button3_0_clicked(bouton3_0));
-	  bouton3_1.addActionListener(new button3_1_clicked(bouton3_1));
-	  bouton3_2.addActionListener(new button3_2_clicked(bouton3_2));
-	  bouton3_3.addActionListener(new button3_3_clicked(bouton3_3));
-	  bouton3_4.addActionListener(new button3_4_clicked(bouton3_4));
-	  bouton3_5.addActionListener(new button3_5_clicked(bouton3_5));
+	  boutons[3][0].addActionListener(new button3_0_clicked(boutons[3][0]));
+	  boutons[3][1].addActionListener(new button3_1_clicked(boutons[3][1]));
+	  boutons[3][2].addActionListener(new button3_2_clicked(boutons[3][2]));
+	  boutons[3][3].addActionListener(new button3_3_clicked(boutons[3][3]));
+	  boutons[3][4].addActionListener(new button3_4_clicked(boutons[3][4]));
+	  boutons[3][5].addActionListener(new button3_5_clicked(boutons[3][5]));
 	   
 		
 	}
@@ -319,9 +261,17 @@ public class MainWindow extends javax.swing.JFrame{
 		for (int lignes = 0 ; lignes < 4 ; lignes++){
 	    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
 	    		
-	    		boutons[lignes][colonnes].setEnabled(lock);	    				
+	    		boutons[lignes][colonnes].setEnabled(lock);	    				    				
 	    	}
 		}    	
+		
+	}
+	
+	/* Questions */
+	
+	public void ask_question(String quest){
+		
+		question.setText(quest);
 		
 	}
 	
