@@ -9,7 +9,7 @@ public class Managers extends Pouvoir{
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("MG")){
 			return 1;
 		}

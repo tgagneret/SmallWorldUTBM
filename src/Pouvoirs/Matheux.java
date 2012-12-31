@@ -8,7 +8,7 @@ public class Matheux extends Pouvoir{
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("MT")){
 			return 1;
 		}

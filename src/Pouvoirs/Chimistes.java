@@ -8,7 +8,7 @@ public class Chimistes extends Pouvoir{
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("CM")){
 			return 1;
 		}

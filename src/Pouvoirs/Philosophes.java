@@ -8,7 +8,7 @@ public class Philosophes extends Pouvoir{
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("PH")){
 			return 1;
 		}

@@ -8,7 +8,7 @@ public class Historiens extends Pouvoir {
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("HT")){
 			return 1;
 		}

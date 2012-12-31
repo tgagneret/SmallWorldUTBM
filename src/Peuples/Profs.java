@@ -11,14 +11,14 @@ public class Profs extends Peuple{
 		this.nom = "Prof";
 	}
 
-	int attaque(int nbrBoulots, int niveau , String type){
+	public int attaque(int nbrBoulots, int niveau , String type){
 		return nbrBoulots;
 	}
 	
-	int defense(int nbrBoulots){
+	public int defense(int nbrBoulots){
 		return nbrBoulots + 1;
 	}	
-	boolean isPossible(int x, int y){
+	public boolean isPossible(int x, int y){
 		/* CODE */
 	}
 }

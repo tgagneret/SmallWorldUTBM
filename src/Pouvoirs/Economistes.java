@@ -8,7 +8,7 @@ public class Economistes extends Pouvoir{
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("GE")){
 			return 1;
 		}

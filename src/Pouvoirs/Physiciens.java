@@ -9,7 +9,7 @@ public class Physiciens extends Pouvoir{
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("PS")){
 			return 1;
 		}

@@ -10,15 +10,15 @@ public class IUTs extends Peuple{
 		
 	}
 
-	int attaque(int nbrBoulots){
+	public int attaque(int nbrBoulots){
 		return nbrBoulots;
 	}
 	
-	int defense(int nbrBoulots){
+	public int defense(int nbrBoulots){
 		return nbrBoulots;
 	}
 	
-	boolean isPossible(int x , int y){
+	public boolean isPossible(int x , int y){
 		/* CODE */
 	}
 	

@@ -3,7 +3,7 @@ package Peuples;
  * Ex : Alcooliques Alcoolique = new Alcooliques()
  */
 
-abstract public class Peuple {
+public abstract class Peuple {
 	
 	protected int boulots;
 	protected String nom;
@@ -16,13 +16,13 @@ abstract public class Peuple {
 		
 	/* Ou type = CS , EC ou TM */
 	
-	abstract int attaque(int nbrBoulots, int niveau , String type);
+	public abstract int attaque(int nbrBoulots, int niveau , String type);
 	
-	abstract int defense(int nbrBoulots);
+	public abstract int defense(int nbrBoulots);
 	
-	abstract boolean isPossible(int x, int y);
+	public abstract boolean isPossible(int x, int y);
 	
-	int get_boulots(){
+	public int get_boulots(){
 		
 		return boulots;
 	}

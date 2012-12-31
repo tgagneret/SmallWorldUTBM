@@ -10,7 +10,7 @@ public class Informaticiens extends Pouvoir{
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("LO")){
 			return 1;
 		}

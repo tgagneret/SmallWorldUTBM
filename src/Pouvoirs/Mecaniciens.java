@@ -8,7 +8,7 @@ public class Mecaniciens extends Pouvoir{
 		
 	}
 	
-	int attaque(String type){
+	public int attaque(String type){
 		if (type.equals("TN")){
 			return 1;
 		}
