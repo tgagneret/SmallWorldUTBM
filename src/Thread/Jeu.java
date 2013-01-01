@@ -1,5 +1,7 @@
 package Thread;
 
+import javax.swing.JOptionPane;
+
 import Joueur.*;
 import MainWindow.MainWindow;
 
@@ -20,13 +22,12 @@ public class Jeu extends Thread{
 				
 				
 				fen.get_Window().lock_buttons(false);
-				if(fen.get_Window().get_answer("Passer en mode déclin ?")){
-					
-				}
-				else{
+				if(fen.get_Window().get_answer("Passer en mode déclin ?") == false){
 					fen.get_Window().lock_buttons(true);
 				}
-				
+				if(fen.get_Window().get_answer("Avez vous fini d'attaquer ?")){
+						
+				}
 				
 				
 				

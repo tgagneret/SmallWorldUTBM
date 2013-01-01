@@ -58,6 +58,10 @@ public class Case {
 		return declin;
 	}
 	
+	public int get_boulots(){
+		return boulots;
+	}
+	
 	public boolean combat(int nbrBoulots, Joueur attaquant){
 		/* CODE */
 		return true; // Pour tests

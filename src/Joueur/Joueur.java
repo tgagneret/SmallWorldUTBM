@@ -48,14 +48,13 @@ public class Joueur {
 	}
 	
 	public boolean passer_declin(){
-		/* CODE */
+		
+		// CODE
 	}
 	
 	public boolean isPossible(int x, int y){
 		
-		/* CODE */
-		
-		
+		// CODE 	
 	}
 	
 	public void add_credits(int nbrCredits){
@@ -71,7 +70,6 @@ public class Joueur {
 	}
 	
 	public int get_credits(){
-		System.out.println(credits);
 		return credits;
 	}
 	

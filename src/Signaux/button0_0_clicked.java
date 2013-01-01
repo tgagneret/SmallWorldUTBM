@@ -1,7 +1,13 @@
 package Signaux;
 import java.awt.event.*;
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
+import Map.*;
+import Joueur.joueurs_jeu;
+import Personnage.Personnage;
+import MainWindow.Attaque;
 
 public class button0_0_clicked implements ActionListener { 
 	
@@ -13,10 +19,7 @@ public class button0_0_clicked implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) { 
 		
-		int coucou = 150;
-		
-		String chaine = "<html>LO43<br/>" + coucou + "</html>";
-		bouton.setText(chaine);		
+		Attaque attaque = new Attaque(bouton);
 		
 	} 
 }
