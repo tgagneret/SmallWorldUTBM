@@ -1,16 +1,33 @@
 package Thread;
-import MainWindow.*;
-import Map.Map;
-import Pile.Pile;
+
+import Joueur.*;
+import MainWindow.MainWindow;
 
 public class Jeu extends Thread{
 	
 	public Jeu(){
-		Pile pile = new Pile();
+
+	}
+	
+	public void run(){
+		
+		for(int nbrTour = 0 ; nbrTour < 10 ; ++nbrTour){
+			for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){
+				
+				
+				
+				
+				
+			}
+			
+			
+		}
 		
 		
 		
 	}
+	
+	
 	
 	
 	

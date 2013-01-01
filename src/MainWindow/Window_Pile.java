@@ -4,21 +4,31 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JRadioButton;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.ButtonGroup;
+
+import Joueur.joueurs_jeu;
 import Pile.*;
 
 /* Cette fenetre affiche les personnages disponibles */
 
 public class Window_Pile extends javax.swing.JDialog{
 
+	/* Ttile */
+	
+	 TitledBorder stat_title = new TitledBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black),"Pile");
+	
 	/* Box */
 	 
 	Box choix = Box.createHorizontalBox();
@@ -60,7 +70,7 @@ public class Window_Pile extends javax.swing.JDialog{
 	 ButtonGroup group = new ButtonGroup();
 	 
 	 
-	 public Window_Pile(Pile pile){
+	 public Window_Pile(){
 		super();
 		this.setTitle("Pile");
 	    this.setSize(600, 400);
@@ -70,7 +80,7 @@ public class Window_Pile extends javax.swing.JDialog{
 		
 		
 		/* Créé une fonction qui genere la fenetre en focntion des persos dispos */
-		
+
 	    content.add(new Label("Personnage"));
 	    prix.add(new Label("Cout"));
 		prix.add(new Label("Gain"));
@@ -79,12 +89,12 @@ public class Window_Pile extends javax.swing.JDialog{
 	    
 		for(int personnage = 0 ; personnage < 10 ; ++personnage){
 			radio[personnage] = new JRadioButton
-					(pile.get_Personnage(personnage).get_peuple().get_nom() + " " + pile.get_Personnage(personnage).get_pouvoir().get_nom());
+					(Pile.getInstance().get_Personnage(personnage).get_peuple().get_nom() + " " + Pile.getInstance().get_Personnage(personnage).get_pouvoir().get_nom());
 			group.add(radio[personnage]);
 			button[personnage] = new JButton("...");
 			
-			cout[personnage] = new Label(Integer.toString(pile.get_credit(personnage)));
-			gain[personnage] = new Label("0");
+			cout[personnage] = new Label(Integer.toString(personnage));
+			gain[personnage] = new Label(Integer.toString(Pile.getInstance().get_credit(personnage)));
 			
 			content.add(radio[personnage]);
 			prix.add(cout[personnage]);
@@ -93,18 +103,38 @@ public class Window_Pile extends javax.swing.JDialog{
 		}
 		
 		
+	    
 		initComponents();
-		this.setVisible(true);
+		
+		/* Signal Valider */
+		
+		valider.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) { 
+				
+				int i = 0;
+				
+				while(radio[i].isSelected() == false){
+					++i;
+				}
+				if (joueurs_jeu.getInstance().get_current_joueur().choisir_perso(i)) {
+					cacher();
+					maj();
+					joueurs_jeu.getInstance().next();
+				}
+				else{
+					valider.setText("valider : Attention");
+				}
+				
+			} 
+		});
+		
 		
 	}
 	
 	private void initComponents(){
 		
-
+		radio[0].setSelected(true);
 		
-			
-		
-		 TitledBorder stat_title = new TitledBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black),"Pile");
 		 choix.setBorder(stat_title);
 		 
 
@@ -119,6 +149,54 @@ public class Window_Pile extends javax.swing.JDialog{
 		
 		
 	}
+	
+	/* ++ Fonction qui retire de la liste le personnage choisi */
+	
+	public void maj(){
+			
+		content.removeAll();
+		prix.removeAll();
+		plus.removeAll();
+
+		perso.setRows(perso.getRows() - 1);
+		price.setRows(price.getRows() - 1);
+		more.setRows(more.getRows() - 1);
+		
+		content.add(new Label("Personnage"));
+		prix.add(new Label("Cout"));
+		prix.add(new Label("Gain"));
+		plus.add(new Label("Plus"));
+		
+		for(int personnage = 0 ; personnage < Pile.getInstance().get_size() ; ++personnage){
+			radio[personnage].setText(Pile.getInstance().get_Personnage(personnage).get_peuple().get_nom() + " " + Pile.getInstance().get_Personnage(personnage).get_pouvoir().get_nom());
+			button[personnage].setText("...");
+			
+			cout[personnage].setText(Integer.toString(personnage));
+			gain[personnage].setText(Integer.toString(Pile.getInstance().get_credit(personnage)));
+			
+			content.add(radio[personnage]);
+			prix.add(cout[personnage]);
+			prix.add(gain[personnage]);
+			plus.add(button[personnage]);
+			
+			
+		}
+		
+		radio[0].setSelected(true);
+
+		
+	}
+	
+	
+	public void afficher(){
+		stat_title.setTitle(joueurs_jeu.getInstance().get_current_joueur().get_name());
+		this.setVisible(true);
+	}
+	
+	public void cacher(){
+		this.setVisible(false);
+	}
+	
 	
 	
 }

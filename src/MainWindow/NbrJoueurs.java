@@ -16,8 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 
-import Personnage.Personnage;
-import Peuples.Peuple;
+import Joueur.joueurs_jeu;
 
 
 
@@ -139,10 +138,11 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	    /* Création des signaux */
 	    
 	    /* Signal valider */
-	    valider.addActionListener(new ActionListener() { 
+	    valider.addActionListener(new ActionListener(){ 
 			public void actionPerformed(ActionEvent e) { 
 				
 				gamers.clear();
+				joueurs_jeu.getInstance().clear();
 				
 				boolean check = false;
 				
@@ -165,8 +165,10 @@ public class NbrJoueurs extends javax.swing.JDialog{
 					for(int nombreJoueur = 0 ;nombreJoueur < (int) choice.getValue() ; ++nombreJoueur){
 						
 						gamers.add(nom_joueur[nombreJoueur].getText());
-									
+						joueurs_jeu.getInstance().set_joueur(nom_joueur[nombreJoueur].getText(),nombreJoueur);			
 					}
+					cacher();
+					
 				}
 				else{
 					impossible.setVisible(true);
@@ -223,18 +225,9 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	public void afficher(){		
 		this.setVisible(true);
 		
-		/* Tant que le joueur a pas validé */
-		do{
-			try{
-				Thread.sleep(100);
-			}
-			catch(InterruptedException e){
-				System.out.println("InterruptedException caught"); 
-			}
-			
-		}while(gamers.isEmpty());
-		
-		
+	}
+	
+	public void cacher(){
 		this.setVisible(false);
 	}
 	

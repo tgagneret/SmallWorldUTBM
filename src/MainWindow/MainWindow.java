@@ -6,14 +6,19 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
+
+import Pile.Pile;
 import Signaux.*;
 import Case.Case;
 import Map.*;
+import Joueur.*;
 import java.util.ArrayList;
 
 
 public class MainWindow extends javax.swing.JFrame{
 
+	
+	private volatile static MainWindow single;
 	
 /* Création des composants */
 	
@@ -81,7 +86,7 @@ public class MainWindow extends javax.swing.JFrame{
    
    JButton[][] boutons = new JButton [4][6];
    
-	public MainWindow() {
+	private MainWindow() {
 		super();
 		this.setTitle("Small World UTBM");
 	    this.setSize(1200, 650);
@@ -93,10 +98,18 @@ public class MainWindow extends javax.swing.JFrame{
 	    
 		
 /* Generer le texte des boutons et les ajoutes à la grille*/
-	    
-	    
-	    
+
 	}    
+	
+	public static MainWindow getInstance(){
+	    if(single == null){
+	      synchronized(MainWindow.class){
+	        if(single == null)
+	          single = new MainWindow();
+	      }
+	    }      
+	    return single;
+	  }
 	    
 	
 	/* Organisations des composants */
@@ -272,6 +285,24 @@ public class MainWindow extends javax.swing.JFrame{
 	public void ask_question(String quest){
 		
 		question.setText(quest);
+		
+	}
+	
+	/* Genere les informations concernant le joueur */
+	public void set_Joueur(){
+		
+		nbr_boulots.setText(Integer.toString(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots()));
+		perso.setText(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_name());
+		nbr_credits.setText(Integer.toString(joueurs_jeu.getInstance().get_current_joueur().get_credits()));
+		status.setText("C'est au joueur : " + joueurs_jeu.getInstance().get_current_joueur().get_name());
+		
+		if(joueurs_jeu.getInstance().get_current_joueur().get_perso_declin() != null){
+			perso_declin.setText(joueurs_jeu.getInstance().get_current_joueur().get_perso_declin().get_name());
+		}
+		else{
+			perso_declin.setText("Aucun");
+		}
+		
 		
 	}
 	

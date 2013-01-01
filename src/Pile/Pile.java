@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import Map.Map;
 import Personnage.*;
 import Pouvoirs.*;
 import Peuples.*;
@@ -11,19 +13,32 @@ public class Pile {
 
 	/* Utilisation des ArrayList */
 	
+	private volatile static Pile single;
+	
 	private ArrayList <Personnage> disponible = new ArrayList<Personnage>();
 	private ArrayList <Personnage>  en_jeu = new ArrayList<Personnage>();
 	private ArrayList <Integer> credits = new ArrayList<Integer>();
 	
-	public Pile(){
+	private Pile(){
 			
 		disponible = create();
 		
-		for(int i = 0 ; i < 11 ; ++i){
-			credits.add(i);
+		for(int i = 0 ; i < disponible.size() ; ++i){
+			credits.add(0);
 		}
 
 	}
+	
+	public static Pile getInstance(){
+	    if(single == null){
+	      synchronized(Pile.class){
+	        if(single == null)
+	          single = new Pile();
+	      }
+	    }      
+	    return single;
+	  }
+	
 	
 	public ArrayList <Personnage> create(){
 		
@@ -80,13 +95,47 @@ public class Pile {
 		return credits.get(indice);
 	}
 	
+	/* Passe un personnage de disponible à en jeu (attention suppresion des credits associé */
 	
-	/*public boolean supprimer(int delete){
-		// CODE 
+	public void supprimer(int delete){
+		// CODE  
+		Personnage perso = new Personnage(disponible.get(delete));
+		
+		disponible.remove(delete);
+		credits.remove(delete);
+		en_jeu.add(perso);
+		
+		
 	}
 	
-	public boolean ajouter(Personnage perso){
+	public void ajouter(Personnage perso){
 		// CODE
-	}*/
+	}
+	
+	
+	/* Renvoie le personnage à l'indice indice et le passe dans les personnages en jeu */
+	public Personnage set_Personnage(int indice){
+		
+		Personnage perso = new Personnage(disponible.get(indice));
+		supprimer(indice);
+		
+		return perso;
+		
+	}
+	
+	public int get_credits(int indice){
+		
+		return credits.get(indice);
+	}
+	
+	public int get_size(){
+		
+		return disponible.size();
+		
+	}
+	
+	public int get_price(int myperso){
+		return credits.get(myperso);
+	}
 	
 }

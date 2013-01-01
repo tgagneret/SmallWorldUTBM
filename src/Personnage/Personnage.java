@@ -9,6 +9,22 @@ public class Personnage {
 	private Pouvoir pouv;
 	private int boulots;
 	
+	public Personnage(){
+		
+		peup = null;
+		pouv = null;
+		boulots = 0;
+	}
+	
+	public Personnage(Personnage perso){
+		
+		peup = perso.get_peuple();
+		pouv = perso.get_pouvoir();
+		boulots = perso.get_boulots();
+		
+	}
+	
+	
 	public Personnage(Peuple newPeup, Pouvoir newPouv){
 
 		peup = newPeup;
@@ -26,6 +42,9 @@ public class Personnage {
 		return pouv;
 	}
 	
+	public int get_boulots(){
+		return boulots;
+	}
 	/* Exemple LO43 : LO (nom) , 43 (niveau) , TM (type) */
 	
 	public int attaque(int nbrBoulots,int niveau , String type , String nom){
@@ -38,6 +57,10 @@ public class Personnage {
 	
 	public boolean isPossible(int x , int y){
 		/* CODE */
+	}
+	
+	public String get_name(){
+		return peup.get_nom() + " " + pouv.get_nom();
 	}
 	
 	

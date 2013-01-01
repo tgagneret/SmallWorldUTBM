@@ -16,7 +16,7 @@ public class button0_0_clicked implements ActionListener {
 		int coucou = 150;
 		
 		String chaine = "<html>LO43<br/>" + coucou + "</html>";
-		bouton.setLabel(chaine);		
+		bouton.setText(chaine);		
 		
 	} 
 }
