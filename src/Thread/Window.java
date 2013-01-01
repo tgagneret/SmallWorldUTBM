@@ -8,50 +8,23 @@ import MainWindow.*;
 
 public class Window extends Thread{
 
-	NbrJoueurs joueurs = new NbrJoueurs();
-	Window_Pile pile = new Window_Pile();
-	//MainWindow fen = new MainWindow();
-	
-	Jeu jouer = new Jeu();
+	MainWindow fen = new MainWindow();
 	
 	
 	public Window(){
-		
+
 	}
 	
 	public void run(){
-		joueurs.afficher();
-		while(joueurs_jeu.getInstance().is_set() == false){
-			try{
-				Thread.sleep(100);
-			}
-			catch(InterruptedException e){
-				System.out.println("InterruptedException caught"); 
-			}
-		}
 		
-		joueurs_jeu.getInstance().start();
+		fen.set_Joueur();
+		fen.afficher();
 		
-		for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){
-			pile.afficher();
-			while(gamer == joueurs_jeu.getInstance().get_current_joueur()){
-				try{
-					Thread.sleep(100);
-				}
-				catch(InterruptedException e){
-					System.out.println("InterruptedException caught"); 
-				}
-			}
-			
-		}
+	}
+	
+	public MainWindow get_Window(){
 		
-		
-		MainWindow.getInstance().afficher();
-		MainWindow.getInstance().set_Joueur();
-		
-		
-		
-		
+		return fen;
 		
 	}
 	

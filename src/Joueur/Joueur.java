@@ -32,14 +32,15 @@ public class Joueur {
 	}
 	
 	public boolean choisir_perso(int numeroPerso){
-		/* CODE */
-		if(Pile.getInstance().get_price(numeroPerso) > credits){
+		if(numeroPerso > credits){
 			return false;
 		}
 		else{
 			
+			credits -= numeroPerso;
 			credits += Pile.getInstance().get_credits(numeroPerso);
 			perso = Pile.getInstance().set_Personnage(numeroPerso); // recopie ?
+			
 			return true;
 		}
 		

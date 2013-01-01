@@ -1,6 +1,8 @@
 package Thread;
 import java.util.ArrayList;
 
+import Joueur.Joueur;
+import Joueur.joueurs_jeu;
 import Map.*;
 import Peuples.*;
 import MainWindow.*;
@@ -10,14 +12,39 @@ import javax.swing.SwingUtilities;
 
 public class Main {
 	
-	
-	
 	public static void main(String[] args) {
 				
-		Window fenetre = new Window();
-		fenetre.run();
-		//Jeu jeu = new Jeu();
-		//jeu.run();
+		NbrJoueurs joueurs = new NbrJoueurs();
+		Window_Pile pile = new Window_Pile();
+		Jeu play = new Jeu();
+		
+		joueurs.afficher();
+		while(joueurs_jeu.getInstance().is_set() == false){
+			try{
+				Thread.sleep(100);
+			}
+			catch(InterruptedException e){
+				System.out.println("InterruptedException caught"); 
+			}
+		}
+		
+		joueurs_jeu.getInstance().start();
+		
+		for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){
+			pile.afficher();
+			while(gamer == joueurs_jeu.getInstance().get_current_joueur()){
+				try{
+					Thread.sleep(100);
+				}
+				catch(InterruptedException e){
+					System.out.println("InterruptedException caught"); 
+				}
+			}
+			
+		}
+		
+		play.run();
+		
 		
 		
 		

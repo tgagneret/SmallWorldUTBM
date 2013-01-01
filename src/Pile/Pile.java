@@ -134,8 +134,4 @@ public class Pile {
 		
 	}
 	
-	public int get_price(int myperso){
-		return credits.get(myperso);
-	}
-	
 }

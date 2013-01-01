@@ -18,7 +18,11 @@ import java.util.ArrayList;
 public class MainWindow extends javax.swing.JFrame{
 
 	
-	private volatile static MainWindow single;
+/* Permet de recuperer les reponses au questions */	
+
+	private boolean yes = false;
+	private boolean no = false;
+	
 	
 /* Création des composants */
 	
@@ -86,7 +90,7 @@ public class MainWindow extends javax.swing.JFrame{
    
    JButton[][] boutons = new JButton [4][6];
    
-	private MainWindow() {
+	public MainWindow() {
 		super();
 		this.setTitle("Small World UTBM");
 	    this.setSize(1200, 650);
@@ -100,17 +104,6 @@ public class MainWindow extends javax.swing.JFrame{
 /* Generer le texte des boutons et les ajoutes à la grille*/
 
 	}    
-	
-	public static MainWindow getInstance(){
-	    if(single == null){
-	      synchronized(MainWindow.class){
-	        if(single == null)
-	          single = new MainWindow();
-	      }
-	    }      
-	    return single;
-	  }
-	    
 	
 	/* Organisations des composants */
 	
@@ -201,14 +194,14 @@ public class MainWindow extends javax.swing.JFrame{
 	  /* Signal oui */
 	    oui.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
-				// code 
+				yes = true; 
 			} 
 		}); 
 	    
 	  /* Signal non */
 	  non.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
-				// code 
+				no = true;
 			} 
 		});
 	  
@@ -282,11 +275,7 @@ public class MainWindow extends javax.swing.JFrame{
 	
 	/* Questions */
 	
-	public void ask_question(String quest){
-		
-		question.setText(quest);
-		
-	}
+	
 	
 	/* Genere les informations concernant le joueur */
 	public void set_Joueur(){
@@ -306,6 +295,28 @@ public class MainWindow extends javax.swing.JFrame{
 		
 	}
 	
+	
+	public boolean get_answer(String quest){
+		question.setText(quest);
+		while(yes == false && no == false){
+			
+			try{
+				Thread.sleep(100);
+			}
+			catch(InterruptedException e){
+				System.out.println("InterruptedException caught"); 
+			}
+			
+		}
+		
+		if(yes == true){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+	}
 	
 	/* Affichage */
 	
