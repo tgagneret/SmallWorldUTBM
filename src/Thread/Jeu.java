@@ -1,9 +1,10 @@
 package Thread;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 import Joueur.*;
-import MainWindow.MainWindow;
+import MainWindow.*;
 
 public class Jeu extends Thread{
 	
@@ -28,6 +29,9 @@ public class Jeu extends Thread{
 				if(fen.get_Window().get_answer("Avez vous fini d'attaquer ?")){
 						
 				}
+				Lock test = new Lock();
+				test.afficher();
+				
 				
 				
 				

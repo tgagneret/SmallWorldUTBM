@@ -1,5 +1,8 @@
 package Map;
+import java.util.ArrayList;
+
 import Case.*;
+import Joueur.*;
 
 
 public class Map {
@@ -75,8 +78,23 @@ public class Map {
 		public String get_type(int ligne, int colonne){
 			return tabCase[ligne][colonne].get_type();
 		}
-	
 		
+		/* Fonction qui renvoie true si le joueur est sur la Map (et pas en declin) */
+		
+		public boolean is_present(Joueur gamer){
+			
+			for(int lignes = 0; lignes < 4 ; ++lignes){
+				for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+					
+					if(tabCase[lignes][colonnes].is_present(gamer) && tabCase[lignes][colonnes].get_declin() == false){
+						return true;
+					}
+				}
+				
+			}
+			
+			return false;
+		}
 		
 	}
 	

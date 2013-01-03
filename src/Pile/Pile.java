@@ -101,12 +101,13 @@ public class Pile {
 		// CODE  
 		Personnage perso = new Personnage(disponible.get(delete));
 		
+		for(int i = 0 ; i < delete; ++i){
+			credits.set(i, credits.get(delete) + i+1);
+		}
 		disponible.remove(delete);
 		credits.remove(delete);
 		en_jeu.add(perso);
-		for(int i = 0 ; i < delete ; ++i){
-			credits.set(i, credits.get(delete) + i+1);
-		}
+		
 		
 		
 	}

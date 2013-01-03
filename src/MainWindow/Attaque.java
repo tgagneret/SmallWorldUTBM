@@ -1,5 +1,7 @@
 package MainWindow;
 
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -16,21 +18,22 @@ JButton bouton;
 	if(Map.getInstance().get_case(0, 0).get_boulots() < joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots()){
 		
 		Object[] possible;
-		Integer[] values = new Integer[joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots() + 1];
-
+		//Integer[] values = new Integer[joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots() + 1];
+		ArrayList <Integer> values = new ArrayList<Integer>();
 		
 		for(int choix = 0 ; choix <= joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots(); ++choix){
-			values[choix] = choix;
+			//values[choix] = choix;
+			values.add(choix);
 		}
 		
-		possible = values;
+		//possible = values;
 		Object s = JOptionPane.showInputDialog(
 		                    bouton,
 		                    "Combien de boulots voulez vous mettre pour attaquer ?",
 		                    "Attaque",
 		                    JOptionPane.QUESTION_MESSAGE,
 		                    null,
-		                    possible,
+		                    values.toArray(),
 		                    0);
 		System.out.println(s);
 		

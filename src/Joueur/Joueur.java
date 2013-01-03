@@ -1,4 +1,6 @@
 package Joueur;
+import java.util.ArrayList;
+
 import Personnage.Personnage;
 import Map.*;
 import Pile.*;
@@ -88,4 +90,22 @@ public class Joueur {
 	public Personnage get_perso_declin(){
 		return perso_declin;
 	}
+	
+	public ArrayList <String> get_Cases(){
+		
+		ArrayList <String> gamer_cases = new ArrayList<String>();
+		
+		for(int lignes = 0; lignes < 4 ; ++lignes){
+			for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+				
+				if(Map.getInstance().get_case(lignes, colonnes).is_present(this) && Map.getInstance().get_case(lignes, colonnes).get_declin() == false){
+					gamer_cases.add(Map.getInstance().get_case(lignes, colonnes).get_nom());
+				}
+			}
+			
+		}
+		
+		return gamer_cases;
+		
+		}
 }

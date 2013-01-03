@@ -1,5 +1,5 @@
 package Case;
-import Joueur.Joueur;
+import Joueur.*;
 
 public class Case {
 	
@@ -79,6 +79,16 @@ public class Case {
 		declin = false;
 		lock = false;
 		
+	}
+	
+	public boolean is_present(Joueur gamer){
+		
+		if(nom.equals(gamer.get_name())){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 }

@@ -76,7 +76,6 @@ public class NbrJoueurs extends javax.swing.JDialog{
 		this.setTitle("Nombre de Joueurs");
 	    this.setSize(500, 250);
 	    this.setLocationRelativeTo(null);
-	  //this.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
 	    initComponents();
 	}
 	
