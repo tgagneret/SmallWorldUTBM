@@ -147,7 +147,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
 				
 				/* On verifie que le nom des joueurs est différent */
 				
-				for(int i = 0 ; i < (int)choice.getValue(); ++i){
+				for(int i = 0 ; i < Integer.parseInt(choice.getValue().toString()); ++i){
 					for(int j = i+1 ; j < (int) choice.getValue(); ++j){
 						if (nom_joueur[i].getText().toString().equals(nom_joueur[j].getText().toString())){
 							
@@ -161,7 +161,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
 				
 				if(check == false){
 					
-					for(int nombreJoueur = 0 ;nombreJoueur < (int) choice.getValue() ; ++nombreJoueur){
+					for(int nombreJoueur = 0 ;nombreJoueur < Integer.parseInt(choice.getValue().toString()) ; ++nombreJoueur){
 						
 						gamers.add(nom_joueur[nombreJoueur].getText());
 						joueurs_jeu.getInstance().set_joueur(nom_joueur[nombreJoueur].getText(),nombreJoueur);			
@@ -189,7 +189,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
 		          
 	    		 for(int nombreJoueur = 0 ;nombreJoueur < 4; ++nombreJoueur){
 	    		 
-	    			 if(nombreJoueur < (int) choice.getValue()){
+	    			 if(nombreJoueur < Integer.parseInt(choice.getValue().toString())){
 	    				 
 	    				 label_joueur[nombreJoueur].setVisible(true);
 	    				 nom_joueur[nombreJoueur].setVisible(true);

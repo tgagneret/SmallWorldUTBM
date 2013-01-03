@@ -51,10 +51,19 @@ public class Joueur {
 	}
 	
 	public void passer_declin(){
-		perso_declin = new Personnage(perso);
-		perso = null;
+		if(perso_declin == null){
+			
+			perso_declin = new Personnage(perso);
+			perso = null;
+			
+			push_declin();
+			
+		}
+		else{
+			
+		}
 		
-		push_declin();
+		
 		
 	}
 	
@@ -122,8 +131,6 @@ public class Joueur {
 	}
 	
 	public void push_declin(){
-	
-		ArrayList <Case> gamer_cases = new ArrayList<Case>();
 		
 		for(int lignes = 0; lignes < 4 ; ++lignes){
 			for(int colonnes = 0; colonnes < 4 ; ++colonnes){
@@ -135,6 +142,20 @@ public class Joueur {
 			}
 		}
 		
+		
+	}
+	
+	public void retirer_declin(){
+		
+		for(int lignes = 0; lignes < 4 ; ++lignes){
+			for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+				
+				if(Map.getInstance().get_case(lignes, colonnes).is_present(this) && Map.getInstance().get_case(lignes, colonnes).get_declin()){
+					Map.getInstance().get_case(lignes, colonnes).vider();
+				}
+				
+			}
+		}
 		
 	}
 	
