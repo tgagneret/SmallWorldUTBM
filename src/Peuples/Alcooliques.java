@@ -32,7 +32,7 @@ public class Alcooliques extends Peuple{
 			{
 				return false;
 			}
-		if (is_present(joueurs_jeu.getInstance().get_current_joueur())) //Vérifie que le joueur est présent sur la carte
+		if (Map.getInstance().is_present(joueurs_jeu.getInstance().get_current_joueur())) //Vérifie que le joueur est présent sur la carte
 			{
 				//Vérifie que le joueur en cours possède des cases adjacentes aux cases adjacentes
 				if (x-2>=0 && y-2>=0 && Map.getInstance().get_case(x-2, y-2).get_joueur() == joueurs_jeu.getInstance().get_current_joueur())
@@ -115,7 +115,6 @@ public class Alcooliques extends Peuple{
 	
 	public String get_description(){
 		return "L'alcoolique ne peut capturer que les cases après celles qui sont adjacentes";
-";
 	}
 	
 }

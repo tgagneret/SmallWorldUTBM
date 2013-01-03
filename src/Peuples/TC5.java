@@ -43,7 +43,7 @@ public class TC5 extends Peuple{
 				return false;
 			}
 		
-		if (is_present(joueurs_jeu.getInstance().get_current_joueur()))
+		if (Map.getInstance().is_present(joueurs_jeu.getInstance().get_current_joueur()))
 			{
 				//Vérification que la ligne au dessus de la case appartient toujours à la carte
 				if (y-1>=0)

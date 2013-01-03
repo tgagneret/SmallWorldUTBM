@@ -30,7 +30,7 @@ public class Surdoues extends Peuple{
 				return false;
 			}
 		
-		if (is_present(joueurs_jeu.getInstance().get_current_joueur()))
+		if (Map.getInstance().is_present(joueurs_jeu.getInstance().get_current_joueur()))
 			{
 						//Vérification des cases adjacentes
 						//Vérification que la ligne au dessus de la case appartient toujours à la carte
