@@ -12,6 +12,7 @@ import javax.swing.JRadioButton;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,8 +25,9 @@ import Pile.*;
 /* Cette fenetre affiche les personnages disponibles */
 
 public class Window_Pile extends javax.swing.JDialog{
+	
 
-	/* Ttile */
+	/* Title */
 	
 	 TitledBorder stat_title = new TitledBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black),"Pile");
 	
@@ -75,7 +77,7 @@ public class Window_Pile extends javax.swing.JDialog{
 		this.setTitle("Pile");
 	    this.setSize(600, 400);
 	    this.setLocationRelativeTo(null);
-	    //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		
 		
 		
@@ -87,7 +89,7 @@ public class Window_Pile extends javax.swing.JDialog{
 		plus.add(new Label("Plus"));
 
 	    
-		for(int personnage = 0 ; personnage < 10 ; ++personnage){
+		for(int personnage = 0 ; personnage < Pile.getInstance().get_size() ; ++personnage){
 			radio[personnage] = new JRadioButton
 					(Pile.getInstance().get_Personnage(personnage).get_peuple().get_nom() + " " + Pile.getInstance().get_Personnage(personnage).get_pouvoir().get_nom());
 			group.add(radio[personnage]);
@@ -100,6 +102,7 @@ public class Window_Pile extends javax.swing.JDialog{
 			prix.add(cout[personnage]);
 			prix.add(gain[personnage]);
 			plus.add(button[personnage]);
+	
 		}
 		
 		
@@ -118,8 +121,6 @@ public class Window_Pile extends javax.swing.JDialog{
 				}
 				if (joueurs_jeu.getInstance().get_current_joueur().choisir_perso(i)) {
 					cacher();
-					maj();
-					joueurs_jeu.getInstance().next();
 				}
 				else{
 					valider.setText("valider : Attention");
@@ -196,6 +197,8 @@ public class Window_Pile extends javax.swing.JDialog{
 	public void cacher(){
 		this.setVisible(false);
 	}
+	
+
 	
 	
 	

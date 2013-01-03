@@ -23,7 +23,7 @@ public class Alcooliques extends Peuple{
 	}
 	
 	public int defense(int nbrBoulots){
-		return 0;
+		return nbrBoulots;
 	}
 	
 	public boolean isPossible(int x , int y){

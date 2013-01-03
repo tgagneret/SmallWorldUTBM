@@ -1,5 +1,6 @@
 package Case;
 import Joueur.*;
+import Map.Map;
 
 public class Case {
 	
@@ -64,9 +65,46 @@ public class Case {
 	
 	public boolean combat(int nbrBoulots, Joueur attaquant){
 		/* CODE */
-		return true; // Pour tests
+		
+		if(player == null){
+			set_Case(nbrBoulots,attaquant);
+			return true;
+		}
+		else if(declin = true){
+			if(attaquant.attaque(nbrBoulots, niveau,type,nom) > boulots){
+				player.get_perso().set_boulots(boulots);
+				// On met le nouveau joueur sur sa case
+				set_Case(nbrBoulots,attaquant);
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		
+		else{
+			if(attaquant.attaque(nbrBoulots, niveau,type,nom) > player.defense(boulots) )
+			{
+				//On rend les jetons à l'ancien joueur
+				player.get_perso().set_boulots(boulots);
+				// On met le nouveau joueur sur sa case
+				set_Case(nbrBoulots,attaquant);
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		
+		
+
 	}
-	
+	private void set_Case(int nbrBoulots, Joueur attaquant){
+		player = attaquant;
+		boulots = nbrBoulots;
+		declin = false;
+		lock = false;
+	}
 	
 	/* Setters */
 	
@@ -83,12 +121,39 @@ public class Case {
 	
 	public boolean is_present(Joueur gamer){
 		
-		if(nom.equals(gamer.get_name())){
-			return true;
-		}
-		else{
+		if(player == null){
 			return false;
 		}
+		else{
+			
+			if(player.get_name().equals(gamer.get_name())){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		
 	}
-
+	
+	public void add_boulots(int nbrBoulots){
+			boulots+=nbrBoulots;
+			player.get_perso().set_boulots(-nbrBoulots);
+		
+	}
+	
+	public void vider(){
+		
+		player = null;
+		boulots = 0;
+		declin = false;
+		lock = false;
+		
+	}
+	
+	public void set_declin(){
+		declin = true;
+		boulots = 1;
+	}
+	
 }

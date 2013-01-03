@@ -17,7 +17,16 @@ public class TC5 extends Peuple{
 	}
 
 	public int attaque(int nbrBoulots, int niveau , String type){
-		return nbrBoulots;
+		if (niveau - 20 < 10){
+			return nbrBoulots + 1;
+		}
+		else if (niveau -40 < 2){
+			return nbrBoulots;
+		}
+		else{
+			return nbrBoulots;
+		}
+		
 	}
 	
 	public int defense(int nbrBoulots){

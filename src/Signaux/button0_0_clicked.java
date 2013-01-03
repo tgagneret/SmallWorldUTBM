@@ -4,22 +4,51 @@ import java.awt.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
+
 import Map.*;
 import Joueur.joueurs_jeu;
 import Personnage.Personnage;
-import MainWindow.Attaque;
+import MainWindow.*;
 
 public class button0_0_clicked implements ActionListener { 
 	
-	JButton bouton;
+	MainWindow fen;
 	
-	public button0_0_clicked(JButton bout){
-		this.bouton = bout;
+	public button0_0_clicked(MainWindow fenetre){
+	fen = fenetre;
+		
 	}
+	
 	
 	public void actionPerformed(ActionEvent e) { 
 		
-		Attaque attaque = new Attaque(bouton);
+		if(fen.get_mode()){
+			if(Map.getInstance().get_case(0, 0).get_joueur() == null ||
+					Map.getInstance().get_case(0, 0).get_joueur().get_name()
+					.equals(joueurs_jeu.getInstance().get_current_joueur().get_name()) == false){
+			JOptionPane.showMessageDialog(fen,
+				    "Cette case ne vous appartient pas !",
+				    "Impossible",
+				    JOptionPane.ERROR_MESSAGE);
+			}
+			else{
+				Organize organise = new Organize(fen,0,0);
+			}
+			
+		}
+		else{
+			if(Map.getInstance().get_case(0, 0).get_joueur() == null || 
+					Map.getInstance().get_case(0, 0).get_joueur().get_name()
+					.equals(joueurs_jeu.getInstance().get_current_joueur().get_name()) == false){
+				Attaque attaque = new Attaque(fen,0,0);
+			}
+			else{
+			JOptionPane.showMessageDialog(fen,
+				    "Cette case vous appartient !",
+				    "Impossible",
+				    JOptionPane.ERROR_MESSAGE);
+			}
+		}
 		
 	} 
 }

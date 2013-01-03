@@ -14,7 +14,16 @@ public class IUT extends Peuple{
 	}
 
 	public int attaque(int nbrBoulots, int niveau , String type){
-		return nbrBoulots;
+		if(type.equals("CS")){
+			return nbrBoulots - 1;
+		}
+		else if(type.equals("TM")){
+			return nbrBoulots + 1;
+		}
+		else{
+			return nbrBoulots;
+		}
+		
 	}
 	
 	public int defense(int nbrBoulots){

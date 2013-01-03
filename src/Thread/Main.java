@@ -32,7 +32,8 @@ public class Main {
 		
 		for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){
 			pile.afficher();
-			while(gamer == joueurs_jeu.getInstance().get_current_joueur()){
+			
+			while(gamer.get_perso() == null){
 				try{
 					Thread.sleep(100);
 				}
@@ -40,6 +41,7 @@ public class Main {
 					System.out.println("InterruptedException caught"); 
 				}
 			}
+			joueurs_jeu.getInstance().next();
 			
 		}
 		

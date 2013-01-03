@@ -48,21 +48,28 @@ public class Personnage {
 	/* Exemple LO43 : LO (nom) , 43 (niveau) , TM (type) */
 	
 	public int attaque(int nbrBoulots,int niveau , String type , String nom){
-		/* CODE */
+		
+		return (pouv.attaque(nom) + peup.attaque(nbrBoulots,niveau,type));
 	}
 	
 	public int defense (int nbrBoulots){
-		/* CODE */
+		return peup.defense(nbrBoulots);
 	}
 	
 	public boolean isPossible(int x , int y){
-		/* CODE */
+		return peup.isPossible(x, y);
 	}
 	
 	public String get_name(){
 		return peup.get_nom() + " " + pouv.get_nom();
 	}
 	
+	public void set_boulots(int nbrBoulots){
+		
+		boulots += nbrBoulots;
+		
+	}
+		
 	
 	
 	

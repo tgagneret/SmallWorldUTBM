@@ -7,7 +7,7 @@ public class joueurs_jeu {
 
 	private volatile static joueurs_jeu single;
 	private ArrayList <Joueur> joueurs_game = new ArrayList<Joueur>();
-	private Joueur current_joueur;
+	private Joueur current_joueur = null;
 	
 	
 	private joueurs_jeu(){

@@ -2,6 +2,7 @@ package Joueur;
 import java.util.ArrayList;
 
 import Personnage.Personnage;
+import Case.Case;
 import Map.*;
 import Pile.*;
 
@@ -41,7 +42,7 @@ public class Joueur {
 			
 			credits -= numeroPerso;
 			credits += Pile.getInstance().get_credits(numeroPerso);
-			perso = Pile.getInstance().set_Personnage(numeroPerso); // recopie ?
+			perso = new Personnage (Pile.getInstance().set_Personnage(numeroPerso));
 			
 			return true;
 		}
@@ -51,20 +52,31 @@ public class Joueur {
 	
 	public void passer_declin(){
 		perso_declin = new Personnage(perso);
+		perso = null;
+		
+		push_declin();
+		
 	}
 	
 	public boolean is_declin(){
 		if(perso_declin == null){
-			return true;
+			return false;
 		}
 		else{
-			return false;
+			return true;
 		}
 	}
 	
+	public int attaque(int nbrBoulots,int niveau , String type , String nom){
+		return perso.attaque(nbrBoulots, niveau, type, nom);
+	}
+	
+	public int defense (int nbrBoulots){
+		return perso.defense(nbrBoulots);
+	}
+	
 	public boolean isPossible(int x, int y){
-		
-		// CODE 	
+		return perso.isPossible(x, y);	
 	}
 	
 	public void add_credits(int nbrCredits){
@@ -72,7 +84,7 @@ public class Joueur {
 	}
 	
 	public void set_personnage(Personnage personnage){
-		perso = personnage;//Peut etre recopie necessaire
+		perso = new Personnage(personnage);
 	}
 	
 	public String get_name(){
@@ -99,7 +111,7 @@ public class Joueur {
 			for(int colonnes = 0; colonnes < 4 ; ++colonnes){
 				
 				if(Map.getInstance().get_case(lignes, colonnes).is_present(this) && Map.getInstance().get_case(lignes, colonnes).get_declin() == false){
-					gamer_cases.add(Map.getInstance().get_case(lignes, colonnes).get_nom());
+					gamer_cases.add(Map.getInstance().get_case(lignes, colonnes).get_nom() + String.valueOf(Map.getInstance().get_case(lignes, colonnes).get_niveau()));
 				}
 			}
 			
@@ -107,5 +119,23 @@ public class Joueur {
 		
 		return gamer_cases;
 		
+	}
+	
+	public void push_declin(){
+	
+		ArrayList <Case> gamer_cases = new ArrayList<Case>();
+		
+		for(int lignes = 0; lignes < 4 ; ++lignes){
+			for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+				
+				if(Map.getInstance().get_case(lignes, colonnes).is_present(this)){
+					Map.getInstance().get_case(lignes, colonnes).set_declin();
+				}
+				
+			}
 		}
+		
+		
+	}
+	
 }

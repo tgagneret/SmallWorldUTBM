@@ -150,6 +150,8 @@ public class Surdoues extends Peuple{
 						return true;
 					}
 			}
+		// AJout test
+		return false;
 	}
 	
 	public String get_description(){

@@ -1,19 +1,26 @@
 package Signaux;
 import java.awt.event.*;
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
+import Map.*;
+import Joueur.joueurs_jeu;
+import Personnage.Personnage;
+import MainWindow.*;
 
 public class button1_2_clicked implements ActionListener { 
 	
-	JButton bouton;
+	MainWindow fen;
 	
-	public button1_2_clicked(JButton bout){
-		this.bouton = bout;
+	public button1_2_clicked(MainWindow fenetre){
+	fen = fenetre;
+		
 	}
+	
 	
 	public void actionPerformed(ActionEvent e) { 
 		
-		/* CODE */		
-		
+		Attaque attaque = new Attaque(fen,1,2);
 	} 
 }
