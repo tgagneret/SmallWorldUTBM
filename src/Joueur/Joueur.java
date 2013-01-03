@@ -47,9 +47,17 @@ public class Joueur {
 		
 	}
 	
-	public boolean passer_declin(){
-		
-		// CODE
+	public void passer_declin(){
+		perso_declin = new Personnage(perso);
+	}
+	
+	public boolean is_declin(){
+		if(perso_declin == null){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	
 	public boolean isPossible(int x, int y){

@@ -310,9 +310,11 @@ public class MainWindow extends javax.swing.JFrame{
 		}
 		
 		if(yes == true){
+			yes = false;
 			return true;
 		}
 		else{
+			no = false;
 			return false;
 		}
 		

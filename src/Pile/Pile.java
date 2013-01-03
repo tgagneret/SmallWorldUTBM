@@ -104,6 +104,9 @@ public class Pile {
 		disponible.remove(delete);
 		credits.remove(delete);
 		en_jeu.add(perso);
+		for(int i = 0 ; i < delete ; ++i){
+			credits.set(i, credits.get(delete) + i+1);
+		}
 		
 		
 	}

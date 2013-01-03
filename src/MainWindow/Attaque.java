@@ -12,7 +12,7 @@ JButton bouton;
 	
 	public Attaque(JButton bout){
 		this.bouton = bout;
-	// If a modifier a cause des bonus attaque
+	// If a modifier a cause des bonus attaque et que se soit possible ou non 
 	if(Map.getInstance().get_case(0, 0).get_boulots() < joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots()){
 		
 		Object[] possible;
@@ -24,7 +24,6 @@ JButton bouton;
 		}
 		
 		possible = values;
-		//JOptionPane boite = new JOptionPane();
 		Object s = JOptionPane.showInputDialog(
 		                    bouton,
 		                    "Combien de boulots voulez vous mettre pour attaquer ?",
