@@ -1,6 +1,5 @@
 package Case;
 import Joueur.*;
-import Map.Map;
 
 public class Case {
 	
@@ -156,4 +155,7 @@ public class Case {
 		boulots = 1;
 	}
 	
+	public void set_lock(boolean locked){
+		lock = locked;
+	}
 }

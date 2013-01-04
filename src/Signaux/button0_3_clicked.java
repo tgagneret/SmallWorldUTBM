@@ -1,13 +1,8 @@
 package Signaux;
 import java.awt.event.*;
-import java.awt.*;
-import java.util.ArrayList;
-
 import javax.swing.*;
-
 import Map.*;
 import Joueur.joueurs_jeu;
-import Personnage.Personnage;
 import MainWindow.*;
 
 public class button0_3_clicked implements ActionListener { 

@@ -2,7 +2,6 @@ package Joueur;
 import java.util.ArrayList;
 
 import Personnage.Personnage;
-import Case.Case;
 import Map.*;
 import Pile.*;
 
@@ -61,6 +60,12 @@ public class Joueur {
 		}
 		else{
 			
+			Pile.getInstance().ajouter(perso_declin);
+			perso_declin = new Personnage(perso);
+			perso = null;
+			
+			push_declin();
+			
 		}
 		
 		
@@ -117,7 +122,7 @@ public class Joueur {
 		ArrayList <String> gamer_cases = new ArrayList<String>();
 		
 		for(int lignes = 0; lignes < 4 ; ++lignes){
-			for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+			for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 				
 				if(Map.getInstance().get_case(lignes, colonnes).is_present(this) && Map.getInstance().get_case(lignes, colonnes).get_declin() == false){
 					gamer_cases.add(Map.getInstance().get_case(lignes, colonnes).get_nom() + String.valueOf(Map.getInstance().get_case(lignes, colonnes).get_niveau()));
@@ -133,7 +138,7 @@ public class Joueur {
 	public void push_declin(){
 		
 		for(int lignes = 0; lignes < 4 ; ++lignes){
-			for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+			for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 				
 				if(Map.getInstance().get_case(lignes, colonnes).is_present(this)){
 					Map.getInstance().get_case(lignes, colonnes).set_declin();

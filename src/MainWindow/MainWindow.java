@@ -341,6 +341,15 @@ public class MainWindow extends javax.swing.JFrame{
 	}
 	
 	
+	public void update_buttons(){
+		for (int lignes = 0 ; lignes < 4 ; lignes++){
+	    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
+	    		
+	    		boutons[lignes][colonnes].setText(set_button(Map.getInstance().get_case(lignes, colonnes)));				    				
+	    	}
+		}
+	}
+	
 	/* Affichage */
 	
 	public void afficher(){		
@@ -354,5 +363,6 @@ public class MainWindow extends javax.swing.JFrame{
 	public boolean get_mode(){
 		return organiser;
 	}
+	
 
 }

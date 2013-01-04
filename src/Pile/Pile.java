@@ -1,10 +1,7 @@
 package Pile;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
-import Map.Map;
 import Personnage.*;
 import Pouvoirs.*;
 import Peuples.*;
@@ -112,8 +109,18 @@ public class Pile {
 		
 	}
 	
-	public void ajouter(Personnage perso){
+	public boolean ajouter(Personnage perso){
 		// CODE
+		Personnage person = new Personnage(perso);
+		
+		for(int value = 0 ; value < en_jeu.size() ; ++value){
+			if(en_jeu.get(value).get_name().equals(perso.get_name())){
+				en_jeu.remove(value);
+				disponible.add(person);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	
@@ -129,7 +136,9 @@ public class Pile {
 	
 	public int get_credits(int indice){
 		
-		return credits.get(indice);
+		int value = credits.get(indice);
+		credits.set(indice, 0);
+		return value;
 	}
 	
 	public int get_size(){

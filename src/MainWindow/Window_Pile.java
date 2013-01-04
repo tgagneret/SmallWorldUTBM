@@ -78,7 +78,7 @@ public class Window_Pile extends javax.swing.JDialog{
 	    this.setSize(600, 400);
 	    this.setLocationRelativeTo(null);
 	    this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-		
+		this.setModal(true);
 		
 		
 		/* Créé une fonction qui genere la fenetre en focntion des persos dispos */
@@ -121,6 +121,7 @@ public class Window_Pile extends javax.swing.JDialog{
 				}
 				if (joueurs_jeu.getInstance().get_current_joueur().choisir_perso(i)) {
 					cacher();
+					maj();
 				}
 				else{
 					valider.setText("valider : Attention");

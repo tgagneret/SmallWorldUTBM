@@ -1,10 +1,8 @@
 package Peuples;
 
-import Joueur.joueurs_jeu;
 /* Les noms de classes (des peuples) prendront un s pour pouvoir appeler ls variable sans s . 
  * Ex : Alcooliques Alcoolique = new Alcooliques()
  */
-import Map.Map;
 
 public abstract class Peuple {
 	

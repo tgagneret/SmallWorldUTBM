@@ -1,18 +1,23 @@
 package MainWindow;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import Joueur.joueurs_jeu;
+import Map.Map;
 
 public class Lock extends javax.swing.JDialog{
 
@@ -36,6 +41,10 @@ public class Lock extends javax.swing.JDialog{
 	
 	/* Pannel */
 	JPanel content = new JPanel(locked); 
+	JPanel buttonPane = new JPanel();
+	
+	/* Button */
+    JButton valider = new JButton("Valider");
 	
 	public Lock() {
 		super();
@@ -43,6 +52,7 @@ public class Lock extends javax.swing.JDialog{
 	    this.setSize(400, 150);
 	    this.setLocationRelativeTo(null);
 	    this.setModal(true);
+	    //this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 	    initComponents();
 	}
 	
@@ -62,6 +72,28 @@ public class Lock extends javax.swing.JDialog{
 		verrouille.add(content);
 		
 		this.add(verrouille);
+		
+		buttonPane.add(valider);
+		
+		this.getContentPane().add(buttonPane,BorderLayout.SOUTH);
+		
+		valider.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) { 
+    		
+				String nom = Case1.getSelectedItem().toString().substring(0, 2); 
+				int niveau = Integer.parseInt(Case1.getSelectedItem().toString().substring(2));
+				
+				Map.getInstance().return_case(nom, niveau).set_lock(true);
+				
+				nom = Case2.getSelectedItem().toString().substring(0, 2); 
+				niveau = Integer.parseInt(Case2.getSelectedItem().toString().substring(2));
+				
+				Map.getInstance().return_case(nom, niveau).set_lock(true);
+				
+				cacher();
+				
+    	 }
+	    });
 		
 	}
 	
