@@ -5,6 +5,7 @@ import MainWindow.MainWindow;
 import MainWindow.NbrJoueurs;
 import Map.*;
 import MainWindow.*;
+import java.lang.Thread;
 
 public class Window extends Thread{
 
