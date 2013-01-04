@@ -1,15 +1,16 @@
 package Thread;
 import java.util.ArrayList;
 
-import Joueur.Joueur;
-import Joueur.joueurs_jeu;
+import Joueur.*;
 import Map.*;
 import Peuples.*;
-import MainWindow.*;
+import MainWindow.NbrJoueurs;
+import MainWindow.Window_Pile;
 import Pile.*;
 
 import javax.swing.SwingUtilities;
-import java.lang.Thread;
+
+
 public class Main {
 	
 	public static void main(String[] args) {

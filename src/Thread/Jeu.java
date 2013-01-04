@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 
 import Joueur.*;
 import MainWindow.*;
-import java.lang.Thread;
 
 public class Jeu extends Thread{
 	

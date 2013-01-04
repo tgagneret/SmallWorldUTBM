@@ -13,7 +13,6 @@ public class Window extends Thread{
 	
 	
 	public Window(){
-
 	}
 	
 	public void run(){

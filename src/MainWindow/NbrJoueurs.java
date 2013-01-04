@@ -3,7 +3,6 @@ import javax.swing.Box;
 import java.awt.*;
 import java.awt.event.*;
 
-
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeListener;
@@ -16,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 
-import Joueur.joueurs_jeu;
+import Joueur.*;
 
 
 
@@ -148,7 +147,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
 				/* On verifie que le nom des joueurs est différent */
 				
 				for(int i = 0 ; i < Integer.parseInt(choice.getValue().toString()); ++i){
-					for(int j = i+1 ; j < (int) choice.getValue(); ++j){
+					for(int j = i+1 ; j < Integer.parseInt(choice.getValue().toString()) ; ++j){
 						if (nom_joueur[i].getText().toString().equals(nom_joueur[j].getText().toString())){
 							
 							check = true;
