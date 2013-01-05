@@ -36,10 +36,10 @@ public class joueurs_jeu {
 		joueurs_game.clear();
 	}
 	
-	/*public void set_current_joueur(Joueur joueur){
+	public void set_current_joueur(Joueur joueur){
 		current_joueur = joueur;
 	}
-	*/
+	
 	public Joueur get_current_joueur(){
 		return current_joueur;
 	}
