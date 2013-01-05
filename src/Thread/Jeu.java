@@ -21,7 +21,7 @@ public class Jeu extends Thread{
 		for(int nbrTour = 0 ; nbrTour < 10 ; ++nbrTour){
 			for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){
 				
-				joueurs_jeu.getInstance().set_current_joueur(gamer);
+				joueurs_jeu.getInstance().start();
 				fen.get_Window().set_Joueur();
 				
 				fen.get_Window().lock_buttons(false);
@@ -69,18 +69,14 @@ public class Jeu extends Thread{
 					
 				}
 				
-				
-				
-				
-				
-				
-				
-				
 			}
 			
 			
 		}
 		
+		fen.stop_window();
+		
+		Window_Fin fen = new Window_Fin();
 		
 		
 	}

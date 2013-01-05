@@ -80,15 +80,23 @@ public class Lock extends javax.swing.JDialog{
 		valider.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
     		
-				String nom = Case1.getSelectedItem().toString().substring(0, 2); 
-				int niveau = Integer.parseInt(Case1.getSelectedItem().toString().substring(2));
+				String nom;
+				int niveau;
 				
-				Map.getInstance().return_case(nom, niveau).set_lock(true);
+				if(Case1.getSelectedItem() != null){
+					nom = Case1.getSelectedItem().toString().substring(0, 2); 
+					niveau = Integer.parseInt(Case1.getSelectedItem().toString().substring(2));
+					
+					Map.getInstance().return_case(nom, niveau).set_lock(true);
+				}
 				
-				nom = Case2.getSelectedItem().toString().substring(0, 2); 
-				niveau = Integer.parseInt(Case2.getSelectedItem().toString().substring(2));
 				
-				Map.getInstance().return_case(nom, niveau).set_lock(true);
+				if(Case2.getSelectedItem() != null){
+					nom = Case2.getSelectedItem().toString().substring(0, 2); 
+					niveau = Integer.parseInt(Case2.getSelectedItem().toString().substring(2));
+				
+					Map.getInstance().return_case(nom, niveau).set_lock(true);
+				}
 				
 				cacher();
 				

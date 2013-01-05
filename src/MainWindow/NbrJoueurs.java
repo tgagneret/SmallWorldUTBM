@@ -165,7 +165,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
 						gamers.add(nom_joueur[nombreJoueur].getText());
 						joueurs_jeu.getInstance().set_joueur(nom_joueur[nombreJoueur].getText(),nombreJoueur);			
 					}
-					joueurs_jeu.getInstance().set_current_joueur(joueurs_jeu.getInstance().get_joueurs().get(0));
+					//joueurs_jeu.getInstance().set_current_joueur(joueurs_jeu.getInstance().get_joueurs().get(0));
 					cacher();
 					
 				}

@@ -16,4 +16,8 @@ public class Economistes extends Pouvoir{
 			return 0;
 		}
 	}
+	
+	public String get_description(){
+		return "+1 Attaque sur les GE";
+	}
 }

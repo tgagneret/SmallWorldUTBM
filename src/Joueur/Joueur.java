@@ -40,7 +40,7 @@ public class Joueur {
 		else{
 			
 			credits -= numeroPerso;
-			credits += Pile.getInstance().get_credits(numeroPerso);
+			credits += Pile.getInstance().get_credit(numeroPerso);
 			perso = new Personnage (Pile.getInstance().set_Personnage(numeroPerso));
 			
 			return true;
@@ -153,7 +153,7 @@ public class Joueur {
 	public void retirer_declin(){
 		
 		for(int lignes = 0; lignes < 4 ; ++lignes){
-			for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+			for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 				
 				if(Map.getInstance().get_case(lignes, colonnes).is_present(this) && Map.getInstance().get_case(lignes, colonnes).get_declin()){
 					Map.getInstance().get_case(lignes, colonnes).vider();
@@ -161,6 +161,24 @@ public class Joueur {
 				
 			}
 		}
+		
+	}
+	
+	public int calcul_fin(){
+		
+		int total = credits;
+		
+		for(int lignes = 0; lignes < 4 ; ++lignes){
+			for(int colonnes = 0; colonnes < 6 ; ++colonnes){
+				if(Map.getInstance().get_case(lignes, colonnes).is_present(this)){
+					
+					total+=1;
+					
+				}
+			}
+		}
+		
+		return total;
 		
 	}
 	

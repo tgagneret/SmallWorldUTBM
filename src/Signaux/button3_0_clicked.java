@@ -1,6 +1,7 @@
 package Signaux;
 import java.awt.event.*;
 import javax.swing.*;
+
 import Map.*;
 import Joueur.joueurs_jeu;
 import MainWindow.*;
@@ -27,7 +28,15 @@ public class button3_0_clicked implements ActionListener {
 				    JOptionPane.ERROR_MESSAGE);
 			}
 			else{
-				Organize organise = new Organize(fen,3,0);
+				if(Map.getInstance().get_case(0, 0).get_declin()){
+					JOptionPane.showMessageDialog(fen,
+						    "Case en mode déclin",
+						    "Impossible",
+						    JOptionPane.ERROR_MESSAGE);
+				}
+				else{
+					Organize organise = new Organize(fen,0,0);
+				}
 			}
 			
 		}

@@ -22,12 +22,20 @@ public class button0_0_clicked implements ActionListener {
 					Map.getInstance().get_case(0, 0).get_joueur().get_name()
 					.equals(joueurs_jeu.getInstance().get_current_joueur().get_name()) == false){
 			JOptionPane.showMessageDialog(fen,
-				    "Cette case ne vous appartient pas !",
+				    "Cette case ne vous appartient pas !!",
 				    "Impossible",
 				    JOptionPane.ERROR_MESSAGE);
 			}
 			else{
-				Organize organise = new Organize(fen,0,0);
+				if(Map.getInstance().get_case(0, 0).get_declin()){
+					JOptionPane.showMessageDialog(fen,
+						    "Case en mode déclin",
+						    "Impossible",
+						    JOptionPane.ERROR_MESSAGE);
+				}
+				else{
+					Organize organise = new Organize(fen,0,0);
+				}
 			}
 			
 		}

@@ -83,7 +83,7 @@ public class Map {
 		public boolean is_present(Joueur gamer){
 			
 			for(int lignes = 0; lignes < 4 ; ++lignes){
-				for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+				for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 					
 					if(tabCase[lignes][colonnes].is_present(gamer) && tabCase[lignes][colonnes].get_declin() == false){
 						return true;
@@ -98,7 +98,7 @@ public class Map {
 		public Case return_case(String nom, int niveau){
 			
 			for(int lignes = 0; lignes < 4 ; ++lignes){
-				for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+				for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 					if(tabCase[lignes][colonnes].get_nom().equals(nom) &&
 							tabCase[lignes][colonnes].get_niveau() == niveau){
 						return tabCase[lignes][colonnes];
@@ -111,7 +111,7 @@ public class Map {
 		
 		public void unlock(){
 			for(int lignes = 0; lignes < 4 ; ++lignes){
-				for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+				for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 					
 					tabCase[lignes][colonnes].set_lock(false);
 				}
@@ -121,7 +121,7 @@ public class Map {
 		public void already_declin(Joueur gamer){
 	
 			for(int lignes = 0; lignes < 4 ; ++lignes){
-				for(int colonnes = 0; colonnes < 4 ; ++colonnes){
+				for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 						
 					if(gamer.get_name().equals(tabCase[lignes][colonnes].get_joueur().get_name()) 
 							&& tabCase[lignes][colonnes].get_declin()){

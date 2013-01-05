@@ -32,7 +32,15 @@ public class button0_5_clicked implements ActionListener {
 				    JOptionPane.ERROR_MESSAGE);
 			}
 			else{
-				Organize organise = new Organize(fen,0,5);
+				if(Map.getInstance().get_case(0, 0).get_declin()){
+					JOptionPane.showMessageDialog(fen,
+						    "Case en mode déclin",
+						    "Impossible",
+						    JOptionPane.ERROR_MESSAGE);
+				}
+				else{
+					Organize organise = new Organize(fen,0,0);
+				}
 			}
 			
 		}

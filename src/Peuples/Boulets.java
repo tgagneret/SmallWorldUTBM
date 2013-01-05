@@ -27,7 +27,7 @@ public class Boulets extends Peuple{
 		{
 			return false;
 		}
-		else if(Map.getInstance().is_present(joueurs_jeu.getInstance().get_current_joueur()) == false && x == 0 || x == 3 || y == 0 || y == 5){
+		else if(Map.getInstance().is_present(joueurs_jeu.getInstance().get_current_joueur()) == false && (x == 0 || x == 3 || y == 0 || y == 5)){
 			return true;
 		}
 		else{			
@@ -56,7 +56,7 @@ public class Boulets extends Peuple{
 	}
 	
 	public String get_description(){
-		return "";
+		return "Pas de capacité";
 	}
 
 }

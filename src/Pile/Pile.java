@@ -20,7 +20,7 @@ public class Pile {
 			
 		disponible = create();
 		
-		for(int i = 0 ; i < disponible.size() ; ++i){
+		for(int i = 0 ; i < disponible.size(); ++i){
 			credits.add(0);
 		}
 
@@ -95,22 +95,21 @@ public class Pile {
 	/* Passe un personnage de disponible à en jeu (attention suppresion des credits associé */
 	
 	public void supprimer(int delete){
-		// CODE  
 		Personnage perso = new Personnage(disponible.get(delete));
 		
-		for(int i = 0 ; i < delete; ++i){
-			credits.set(i, credits.get(delete) + i+1);
-		}
 		disponible.remove(delete);
-		credits.remove(delete);
 		en_jeu.add(perso);
 		
-		
+		credits.set(delete, 0);
+		for(int credit = 0 ; credit < delete; ++credit){
+			credits.set(credit, credits.get(credit) + 1);
+		}
 		
 	}
 	
+	// Permet de passer un personnage en_jeu a disponible
+	
 	public boolean ajouter(Personnage perso){
-		// CODE
 		Personnage person = new Personnage(perso);
 		
 		for(int value = 0 ; value < en_jeu.size() ; ++value){
@@ -132,13 +131,6 @@ public class Pile {
 		
 		return perso;
 		
-	}
-	
-	public int get_credits(int indice){
-		
-		int value = credits.get(indice);
-		credits.set(indice, 0);
-		return value;
 	}
 	
 	public int get_size(){

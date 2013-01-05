@@ -13,13 +13,12 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import Map.*;
-import Signaux.button0_0_clicked;
+
 
 import Joueur.joueurs_jeu;
 
@@ -74,14 +73,24 @@ public class Organize extends JDialog{
 		    this.setModal(true);
 		    
 		    x = ligne;
-		    y = ligne;
+		    y = colonne;
 		    fen = fenetre;
-		    
+
 		    valider.addActionListener(new ActionListener() { 
 				public void actionPerformed(ActionEvent e) { 
-	    		 // Ajouter pour qu'il reste un boulot minimum
-	    		 Map.getInstance().get_case(x, y).add_boulots((int)add.getSelectedItem());
-	    		 Map.getInstance().get_case(x, y).add_boulots(-(int)pull.getSelectedItem());
+					// On regarde s'il reste au moins un boulot apres la transaction
+				if(Map.getInstance().get_case(x, y).get_boulots() - Integer.parseInt(pull.getSelectedItem().toString()) >= 1){
+					Map.getInstance().get_case(x, y).add_boulots(-Integer.parseInt(pull.getSelectedItem().toString()));
+				}
+				else{
+					JOptionPane.showMessageDialog(fen,
+						    "Il doit rester au moins un boulot par case",
+						    "Impossible",
+						    JOptionPane.ERROR_MESSAGE);
+				}
+				
+	    		Map.getInstance().get_case(x, y).add_boulots((Integer.parseInt(add.getSelectedItem().toString())));
+	    		 
 	    		 fen.boutons[x][y].setText(fen.set_button(Map.getInstance().get_case(x, y)));
 	    		 fen.set_Joueur();
 	    		 cacher();

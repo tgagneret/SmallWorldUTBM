@@ -42,7 +42,7 @@ public class TC5 extends Peuple{
 		else if(Map.getInstance().get_case(x, y).get_niveau()>30){
 			return false;
 		}
-		else if(Map.getInstance().is_present(joueurs_jeu.getInstance().get_current_joueur()) == false && x == 0 || x == 3 || y == 0 || y == 5){
+		else if(Map.getInstance().is_present(joueurs_jeu.getInstance().get_current_joueur()) == false && (x == 0 || x == 3 || y == 0 || y == 5)){
 			return true;
 		}
 		else{			
@@ -73,7 +73,7 @@ public class TC5 extends Peuple{
 	}
 	
 	public String get_description(){
-		return "";
+		return "+1 attaque sur les XX1X et XX2X, capture normalement les XX0X mais ne peut pas capturer les autres";
 	}
 
 }

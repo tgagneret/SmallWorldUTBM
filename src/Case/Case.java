@@ -136,8 +136,16 @@ public class Case {
 	}
 	
 	public void add_boulots(int nbrBoulots){
+			
+			
+			try{
 			boulots+=nbrBoulots;
 			player.get_perso().set_boulots(-nbrBoulots);
+			
+			}catch(NullPointerException e){
+				
+				System.out.println("Aucun joueur");
+			}
 		
 	}
 	

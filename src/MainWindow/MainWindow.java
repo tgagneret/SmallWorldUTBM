@@ -30,6 +30,7 @@ public class MainWindow extends javax.swing.JFrame{
 	/* Box */
     Box hb = Box.createHorizontalBox();
     Box myPerso = Box.createVerticalBox();
+
     
     /* Menu bar*/
     
@@ -169,7 +170,9 @@ public class MainWindow extends javax.swing.JFrame{
 	/* Barre des statuts */
 	    
 	    status.setBorder(new EtchedBorder());
-	    status.setText("C'est au joueur :");
+	
+	    
+	    status.setText("Debut de la partie");
 
 	/* Boutons */
 	    declin.setFont((new Font("TimesRoman", Font.BOLD, 14)));
@@ -254,16 +257,24 @@ public class MainWindow extends javax.swing.JFrame{
 	public String set_button(Case place){
 		
 			String texte;/* CODE pour generer le texte sur un bouton */
+			String joueur;
+			String niveau;
 			
 		if(place.get_joueur() == null){
-			texte = "<html>" + place.get_nom() + place.get_niveau() + 
-					"<br>Boulots : " + place.get_boulots() + "<br>Joueur: aucun" + "</html>";
+			joueur = "aucun";
 		}
 		else{
-			texte = "<html>" + place.get_nom() + place.get_niveau() + 
-					"<br>Boulots : " + place.get_boulots() + "<br>Joueur: "+ place.get_joueur().get_name() + "</html>";
+			joueur = place.get_joueur().get_name();
+		}
+		if(place.get_niveau() < 10){
+			niveau = "0" + String.valueOf(place.get_niveau());
+		}
+		else{
+			niveau =  String.valueOf(place.get_niveau());
 		}
 		
+		texte = "<html>" + place.get_nom() + niveau  + " (" + place.get_type() + ") " +
+		"<br>Boulots : " + place.get_boulots() + "<br>Joueur: "+ joueur + "</html>";
 		
 		return texte;
 		
@@ -300,7 +311,8 @@ public class MainWindow extends javax.swing.JFrame{
 			nbr_boulots.setText(Integer.toString(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots()));
 			perso.setText(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_name());
 			nbr_credits.setText(Integer.toString(joueurs_jeu.getInstance().get_current_joueur().get_credits()));
-			status.setText("C'est au joueur : " + joueurs_jeu.getInstance().get_current_joueur().get_name());
+			status.setText("<html><pre>Tour : " + joueurs_jeu.getInstance().get_tour() +
+					"\t\tC'est au joueur : " + joueurs_jeu.getInstance().get_current_joueur().get_name() + "</pre></html>");
 			
 			if(joueurs_jeu.getInstance().get_current_joueur().get_perso_declin() != null){
 				perso_declin.setText(joueurs_jeu.getInstance().get_current_joueur().get_perso_declin().get_name());
@@ -309,7 +321,20 @@ public class MainWindow extends javax.swing.JFrame{
 				perso_declin.setText("Aucun");
 			}
 			
+			for (int lignes = 0 ; lignes < 4 ; lignes++){
+		    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
+		    		boutons[lignes][colonnes].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		    		if(Map.getInstance().get_case(lignes, colonnes).get_joueur() != null &&
+		    				Map.getInstance().get_case(lignes, colonnes).get_joueur().get_name()
+		    				.equals(joueurs_jeu.getInstance().get_current_joueur().get_name())){
+		    			boutons[lignes][colonnes].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.RED));
+		    		}
+		    	}
+			
+			}
 		}
+		
+		
 		
 		
 		

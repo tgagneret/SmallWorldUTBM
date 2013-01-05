@@ -17,4 +17,8 @@ public class Chimistes extends Pouvoir{
 		}
 	}
 	
+	public String get_description(){
+		return "+1 Attaque sur les CM";
+	}
+	
 }

@@ -8,6 +8,7 @@ public class joueurs_jeu {
 	private volatile static joueurs_jeu single;
 	private ArrayList <Joueur> joueurs_game = new ArrayList<Joueur>();
 	private Joueur current_joueur = null;
+	private int tour = 0;
 	
 	
 	private joueurs_jeu(){
@@ -26,7 +27,6 @@ public class joueurs_jeu {
 	  }
 	
 	public void set_joueur(String nom,int number){
-		
 			joueurs_game.add(new Joueur(number,nom));
 		
 		
@@ -36,10 +36,10 @@ public class joueurs_jeu {
 		joueurs_game.clear();
 	}
 	
-	public void set_current_joueur(Joueur joueur){
+	/*public void set_current_joueur(Joueur joueur){
 		current_joueur = joueur;
 	}
-	
+	*/
 	public Joueur get_current_joueur(){
 		return current_joueur;
 	}
@@ -63,21 +63,36 @@ public class joueurs_jeu {
 	
 	/* Change le joueur devant jouer au siuvant */
 	public void next(){
+		int current = 0;
 		
-		int current = joueurs_game.indexOf(current_joueur);
+		try{
+			current = joueurs_game.indexOf(current_joueur);
+			
+			if (current == joueurs_game.size() - 1){
+				current_joueur = joueurs_game.get(0);
+				tour+=1;
+			}
+			else{
+				current_joueur = joueurs_game.get(current+1);
+			}
+			
+		}catch(NullPointerException e){
+				
+			System.out.println("Aucun joueur en train de jouer");
+		}
 		
-		if (current == joueurs_game.size() - 1){
-			current_joueur = joueurs_game.get(0);
-		}
-		else{
-			current_joueur = joueurs_game.get(current+1);
-		}
+		
+		
+	}
+	
+	public int get_tour(){
+		return tour;
 	}
 	
 	
 	/* Met le joueur 1 en tant que current_joueur */
 	public void start(){
-		
+		tour = 1;
 		current_joueur = joueurs_game.get(0);
 		
 	}

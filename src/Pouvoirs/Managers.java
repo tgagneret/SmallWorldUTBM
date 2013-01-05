@@ -18,4 +18,8 @@ public class Managers extends Pouvoir{
 		}
 	}
 	
+	public String get_description(){
+		return "+1 Attaque sur les MG";
+	}
+	
 }

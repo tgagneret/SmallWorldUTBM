@@ -15,12 +15,14 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.ButtonGroup;
 
 import Joueur.joueurs_jeu;
 import Pile.*;
+import Signaux.*;
 
 /* Cette fenetre affiche les personnages disponibles */
 
@@ -124,16 +126,26 @@ public class Window_Pile extends javax.swing.JDialog{
 					maj();
 				}
 				else{
-					valider.setText("valider : Attention");
+					JOptionPane.showMessageDialog(rootPane,
+						    "Vous n'avez pas assez de credits",
+						    "Attention",
+						    JOptionPane.INFORMATION_MESSAGE);
 				}
 				
 			} 
 		});
 		
 		
+		
 	}
 	
 	private void initComponents(){
+		
+		
+		for(int personnage = 0 ; personnage < Pile.getInstance().get_size() ; ++personnage){
+			button[personnage].addActionListener(new More_button_clicked(this,personnage));
+		}
+		
 		
 		radio[0].setSelected(true);
 		
@@ -170,7 +182,8 @@ public class Window_Pile extends javax.swing.JDialog{
 		plus.add(new Label("Plus"));
 		
 		for(int personnage = 0 ; personnage < Pile.getInstance().get_size() ; ++personnage){
-			radio[personnage].setText(Pile.getInstance().get_Personnage(personnage).get_peuple().get_nom() + " " + Pile.getInstance().get_Personnage(personnage).get_pouvoir().get_nom());
+			radio[personnage].setText(Pile.getInstance().get_Personnage(personnage).get_peuple().get_nom() + " " +
+					Pile.getInstance().get_Personnage(personnage).get_pouvoir().get_nom());
 			button[personnage].setText("...");
 			
 			cout[personnage].setText(Integer.toString(personnage));

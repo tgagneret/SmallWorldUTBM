@@ -22,6 +22,10 @@ public class Window extends Thread{
 		
 	}
 	
+	public void stop_window(){
+		fen.setVisible(false);
+	}
+	
 	public MainWindow get_Window(){
 		
 		return fen;
