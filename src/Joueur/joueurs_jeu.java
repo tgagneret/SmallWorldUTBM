@@ -8,7 +8,7 @@ public class joueurs_jeu {
 	private volatile static joueurs_jeu single;
 	private ArrayList <Joueur> joueurs_game = new ArrayList<Joueur>();
 	private Joueur current_joueur = null;
-	private int tour = 0;
+	private int tour = 1;
 	
 	
 	private joueurs_jeu(){
@@ -70,7 +70,6 @@ public class joueurs_jeu {
 			
 			if (current == joueurs_game.size() - 1){
 				current_joueur = joueurs_game.get(0);
-				tour+=1;
 			}
 			else{
 				current_joueur = joueurs_game.get(current+1);
@@ -95,6 +94,10 @@ public class joueurs_jeu {
 		tour = 1;
 		current_joueur = joueurs_game.get(0);
 		
+	}
+	
+	public void tour_suivant(){
+		tour+=1;
 	}
 	
 	

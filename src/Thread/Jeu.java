@@ -72,7 +72,7 @@ public class Jeu extends Thread{
 				
 			}
 			
-			
+			joueurs_jeu.getInstance().tour_suivant();
 		}
 		
 		fen.stop_window();
