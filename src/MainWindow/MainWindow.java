@@ -217,37 +217,16 @@ public class MainWindow extends javax.swing.JFrame{
 	  
 	  /* Signaux cases*/
 	  
-	  
-	  
-	  boutons[0][0].addActionListener(new button0_0_clicked(this));
-	  boutons[0][1].addActionListener(new button0_1_clicked(this));
-	  boutons[0][2].addActionListener(new button0_2_clicked(this));
-	  boutons[0][3].addActionListener(new button0_3_clicked(this));
-	  boutons[0][4].addActionListener(new button0_4_clicked(this));
-	  boutons[0][5].addActionListener(new button0_5_clicked(this));
-	  
-	  boutons[1][0].addActionListener(new button1_0_clicked(this));
-	  boutons[1][1].addActionListener(new button1_1_clicked(this));
-	  boutons[1][2].addActionListener(new button1_2_clicked(this));
-	  boutons[1][3].addActionListener(new button1_3_clicked(this));
-	  boutons[1][4].addActionListener(new button1_4_clicked(this));
-	  boutons[1][5].addActionListener(new button1_5_clicked(this));
-	  
-	  boutons[2][0].addActionListener(new button2_0_clicked(this));
-	  boutons[2][1].addActionListener(new button2_1_clicked(this));
-	  boutons[2][2].addActionListener(new button2_2_clicked(this));
-	  boutons[2][3].addActionListener(new button2_3_clicked(this));
-	  boutons[2][4].addActionListener(new button2_4_clicked(this));
-	  boutons[2][5].addActionListener(new button2_5_clicked(this));
-	  
-	  boutons[3][0].addActionListener(new button3_0_clicked(this));
-	  boutons[3][1].addActionListener(new button3_1_clicked(this));
-	  boutons[3][2].addActionListener(new button3_2_clicked(this));
-	  boutons[3][3].addActionListener(new button3_3_clicked(this));
-	  boutons[3][4].addActionListener(new button3_4_clicked(this));
-	  boutons[3][5].addActionListener(new button3_5_clicked(this));
 	 
+	  for (int lignes = 0 ; lignes < 4 ; lignes++){
+	    	for(int colonnes = 0 ; colonnes <6 ; colonnes++){
+	    		
+	    		boutons[lignes][colonnes].addActionListener(new Case_clicked(this,lignes,colonnes));				    				
+	    	}
+		}
 	   
+	  
+	  
 		
 	}
 	
