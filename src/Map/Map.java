@@ -123,7 +123,8 @@ public class Map {
 			for(int lignes = 0; lignes < 4 ; ++lignes){
 				for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 						
-					if(gamer.get_name().equals(tabCase[lignes][colonnes].get_joueur().get_name()) 
+					if(tabCase[lignes][colonnes].get_joueur() != null &&
+							gamer.get_name().equals(tabCase[lignes][colonnes].get_joueur().get_name()) 
 							&& tabCase[lignes][colonnes].get_declin()){
 						tabCase[lignes][colonnes].vider();
 					}

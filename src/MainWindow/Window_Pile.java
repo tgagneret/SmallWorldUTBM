@@ -204,7 +204,8 @@ public class Window_Pile extends javax.swing.JDialog{
 	
 	
 	public void afficher(){
-		stat_title.setTitle(joueurs_jeu.getInstance().get_current_joueur().get_name());
+		stat_title.setTitle(joueurs_jeu.getInstance().get_current_joueur().get_name() + 
+				" (" + joueurs_jeu.getInstance().get_current_joueur().get_credits() + " crédits)");
 		this.validate();
 		this.repaint();
 		this.setVisible(true);

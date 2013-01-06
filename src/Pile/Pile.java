@@ -98,12 +98,14 @@ public class Pile {
 		Personnage perso = new Personnage(disponible.get(delete));
 		
 		disponible.remove(delete);
+		credits.remove(delete);
 		en_jeu.add(perso);
 		
-		credits.set(delete, 0);
 		for(int credit = 0 ; credit < delete; ++credit){
 			credits.set(credit, credits.get(credit) + 1);
 		}
+		
+		credits.add(0);
 		
 	}
 	

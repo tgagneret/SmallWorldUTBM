@@ -137,6 +137,8 @@ public class Joueur {
 	
 	public void push_declin(){
 		
+		Map.getInstance().already_declin(this);
+		
 		for(int lignes = 0; lignes < 4 ; ++lignes){
 			for(int colonnes = 0; colonnes < 6 ; ++colonnes){
 				

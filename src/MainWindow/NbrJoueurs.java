@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
@@ -101,9 +102,6 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	    label_joueur[2].setVisible(false);
 	    label_joueur[3].setVisible(false);
 	    
-	    impossible.setForeground(Color.RED);
-	    impossible.setVisible(false);
-	    
 	    
 	    for(int value = 0 ; value < 4 ; ++ value){
 	    	content.add(label_joueur[value]);
@@ -118,7 +116,6 @@ public class NbrJoueurs extends javax.swing.JDialog{
 	    
 	    structure.add(bienvenue);
 	    structure.add(joueur);
-	    structure.add(impossible);
 	    
 	    nbrJoueur.add(content);
 	    
@@ -148,7 +145,8 @@ public class NbrJoueurs extends javax.swing.JDialog{
 				
 				for(int i = 0 ; i < Integer.parseInt(choice.getValue().toString()); ++i){
 					for(int j = i+1 ; j < Integer.parseInt(choice.getValue().toString()) ; ++j){
-						if (nom_joueur[i].getText().toString().equals(nom_joueur[j].getText().toString())){
+						if (nom_joueur[i].getText().toString().equals(nom_joueur[j].getText().toString()) ||
+								nom_joueur[i].getText().toString().length() > 10){
 							
 							check = true;
 						}
@@ -165,13 +163,15 @@ public class NbrJoueurs extends javax.swing.JDialog{
 						gamers.add(nom_joueur[nombreJoueur].getText());
 						joueurs_jeu.getInstance().set_joueur(nom_joueur[nombreJoueur].getText(),nombreJoueur);			
 					}
-					//joueurs_jeu.getInstance().set_current_joueur(joueurs_jeu.getInstance().get_joueurs().get(0));
 					cacher();
 					
 				}
 				else{
-					impossible.setVisible(true);
-					valider.setText("Valider : Attention !");
+	
+					JOptionPane.showMessageDialog(rootPane,
+						    "Les noms des joueurs doivent être différents et ne pas exceder 10 caractères",
+						    "Impossible",
+						    JOptionPane.ERROR_MESSAGE);
 				}
 				
 				
