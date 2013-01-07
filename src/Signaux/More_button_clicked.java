@@ -1,13 +1,15 @@
 package Signaux;
 import java.awt.event.*;
 import java.awt.*;
+
+import MainWindow.MainWindow;
 import Pile.*;
 import javax.swing.*;
 
 
 public class More_button_clicked implements ActionListener { 
 	
-	JDialog fen;
+	private JDialog fen;
 	private int indice;
 	
 	
@@ -16,6 +18,7 @@ public class More_button_clicked implements ActionListener {
 	indice = i;
 		
 	}
+	
 	
 	
 	public void actionPerformed(ActionEvent e) { 

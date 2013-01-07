@@ -1,8 +1,6 @@
 package MainWindow;
 
 import java.util.ArrayList;
-
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import Joueur.joueurs_jeu;

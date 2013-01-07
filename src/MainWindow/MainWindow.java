@@ -1,6 +1,8 @@
 package MainWindow;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -39,7 +41,9 @@ public class MainWindow extends javax.swing.JFrame{
     JMenu jeu = new JMenu("Jeu");
     
     JMenuItem aide = new JMenuItem("Aide",
-            KeyEvent.VK_T);
+            KeyEvent.VK_A);
+    JMenuItem myperso = new JMenuItem("Mon personnage",
+            KeyEvent.VK_P);
 
     
     
@@ -163,7 +167,11 @@ public class MainWindow extends javax.swing.JFrame{
 
 	   aide.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.ALT_MASK));
 	   aide.getAccessibleContext().setAccessibleDescription("Aide pour le jeu");
+	   myperso.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, ActionEvent.ALT_MASK));
+	   myperso.getAccessibleContext().setAccessibleDescription("Information sur votre personnage");
+	   
 	   jeu.add(aide);
+	   jeu.add(myperso);
 	    
 	setJMenuBar(barre);
 
@@ -215,6 +223,26 @@ public class MainWindow extends javax.swing.JFrame{
 			} 
 		}); 
 	  
+	  /* Signal myperso */
+	  
+	
+	 myperso.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) { 
+				
+				String infos = joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots() + " boulots\n" +
+						joueurs_jeu.getInstance().get_current_joueur().get_perso().get_peuple().get_description() + "\n" + 
+						joueurs_jeu.getInstance().get_current_joueur().get_perso().get_pouvoir().get_description();
+				
+				JOptionPane.showMessageDialog(rootPane,
+					    infos,
+					    joueurs_jeu.getInstance().get_current_joueur().get_perso().get_name(),
+					    JOptionPane.INFORMATION_MESSAGE);
+				
+				
+				
+			} 
+		});
+	  
 	  /* Signaux cases*/
 	  
 	 
@@ -235,7 +263,7 @@ public class MainWindow extends javax.swing.JFrame{
 	
 	public String set_button(Case place){
 		
-			String texte;/* CODE pour generer le texte sur un bouton */
+			String texte;
 			String joueur;
 			String niveau;
 			

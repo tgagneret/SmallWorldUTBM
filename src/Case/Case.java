@@ -62,8 +62,9 @@ public class Case {
 		return boulots;
 	}
 	
+	/* Fonction qui réalise le combat : si l'attaquant gagne renvoie 1 sinon renvoie 0 */
+	
 	public boolean combat(int nbrBoulots, Joueur attaquant){
-		/* CODE */
 		
 		if(player == null){
 			set_Case(nbrBoulots,attaquant);
@@ -118,6 +119,8 @@ public class Case {
 		
 	}
 	
+	/* Renvoie 1 si le joueur est present sur la case 0 sinon */
+	
 	public boolean is_present(Joueur gamer){
 		
 		if(player == null){
@@ -135,6 +138,8 @@ public class Case {
 		
 	}
 	
+	/* Ajoute des boulots sur une case (si le joueur sur la case est différent que celui qui ajoute on lui redonne ses boulots */
+	
 	public void add_boulots(int nbrBoulots){
 			
 			
@@ -149,6 +154,8 @@ public class Case {
 		
 	}
 	
+	/* On met la case vide */
+	
 	public void vider(){
 		
 		player = null;
@@ -158,11 +165,13 @@ public class Case {
 		
 	}
 	
+	/* Passe la case en declin */
 	public void set_declin(){
 		declin = true;
 		boulots = 1;
 	}
 	
+	/* Verouille la case */
 	public void set_lock(boolean locked){
 		lock = locked;
 	}

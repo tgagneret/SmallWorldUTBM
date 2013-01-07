@@ -33,6 +33,8 @@ public class Joueur {
 		
 	}
 	
+	/* Permet de mettre un personnage comme personnage du joueur */
+	
 	public boolean choisir_perso(int numeroPerso){
 		if(numeroPerso > credits){
 			return false;
@@ -49,7 +51,11 @@ public class Joueur {
 		
 	}
 	
+	/* Passe le joueur en declin */
+	
 	public void passer_declin(){
+		
+		/* SI le joueur n'était pas déja en declin */
 		if(perso_declin == null){
 			
 			perso_declin = new Personnage(perso);
@@ -59,7 +65,7 @@ public class Joueur {
 			
 		}
 		else{
-			
+			/* Si le joueur etait deja en declin on lui retire les cases en declin et on remet le personnage dans la pile */
 			Pile.getInstance().ajouter(perso_declin);
 			perso_declin = new Personnage(perso);
 			perso = null;
@@ -72,6 +78,7 @@ public class Joueur {
 		
 	}
 	
+	/* Demande si le joueur est en declin */
 	public boolean is_declin(){
 		if(perso_declin == null){
 			return false;
@@ -81,22 +88,27 @@ public class Joueur {
 		}
 	}
 	
+	/* Retourne le nombre de boulots pour l'attaque (en ajoutant les bonus) */
 	public int attaque(int nbrBoulots,int niveau , String type , String nom){
 		return perso.attaque(nbrBoulots, niveau, type, nom);
 	}
 	
+	/* Retourne le nombre de boulots pour la defense (en ajoutant les bonus) */
 	public int defense (int nbrBoulots){
 		return perso.defense(nbrBoulots);
 	}
 	
+	/* Retourne 1 si le joueur peut attaquer la case 0 sinon */
 	public boolean isPossible(int x, int y){
 		return perso.isPossible(x, y);	
 	}
 	
+	/* Ajoute des credits au joueur */
 	public void add_credits(int nbrCredits){
 		credits += nbrCredits;
 	}
 	
+	/* Change le personnage du joueur */
 	public void set_personnage(Personnage personnage){
 		perso = new Personnage(personnage);
 	}
@@ -117,6 +129,7 @@ public class Joueur {
 		return perso_declin;
 	}
 	
+	/* Retourne un tableau des cases (qui ne sont pas en declin) possédées par le joueur */
 	public ArrayList <String> get_Cases(){
 		
 		ArrayList <String> gamer_cases = new ArrayList<String>();
@@ -135,6 +148,7 @@ public class Joueur {
 		
 	}
 	
+	/* Passe les cases d'un joueur en declin */
 	public void push_declin(){
 		
 		Map.getInstance().already_declin(this);
@@ -152,6 +166,7 @@ public class Joueur {
 		
 	}
 	
+	/* Vide les cases d'un joueur qui sont en declin */
 	public void retirer_declin(){
 		
 		for(int lignes = 0; lignes < 4 ; ++lignes){
@@ -165,7 +180,7 @@ public class Joueur {
 		}
 		
 	}
-	
+	/* Calcul le score final du joueur (nombre de credits + 1*(nombre de cases possédées)*/
 	public int calcul_fin(){
 		
 		int total = credits;

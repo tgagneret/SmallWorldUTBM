@@ -95,6 +95,7 @@ public class Map {
 			return false;
 		}
 		
+		/* Retourne la case correspondant au nom et niveau donnés (LO , 43) par ex */
 		public Case return_case(String nom, int niveau){
 			
 			for(int lignes = 0; lignes < 4 ; ++lignes){
@@ -109,6 +110,7 @@ public class Map {
 			return null;
 		}
 		
+		/* Deverouille toutes les cases de la map */
 		public void unlock(){
 			for(int lignes = 0; lignes < 4 ; ++lignes){
 				for(int colonnes = 0; colonnes < 6 ; ++colonnes){
@@ -118,6 +120,7 @@ public class Map {
 			}
 		}
 		
+		/* Vide les cases (en declin) d'un joueur qui est en declin */
 		public void already_declin(Joueur gamer){
 	
 			for(int lignes = 0; lignes < 4 ; ++lignes){
