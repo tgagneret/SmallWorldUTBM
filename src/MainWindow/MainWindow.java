@@ -9,12 +9,14 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import java.io.File;
+import java.io.IOException;
+
 import Pile.Pile;
 import Signaux.*;
 import Case.Case;
 import Map.*;
 import Joueur.*;
-import java.util.ArrayList;
 
 
 public class MainWindow extends javax.swing.JFrame{
@@ -220,6 +222,22 @@ public class MainWindow extends javax.swing.JFrame{
 	  aide.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
 				/* CODE */
+				File file = new File("Rules");
+				if(file.exists()){
+					try{
+						java.awt.Desktop.getDesktop().open(file);
+					}
+					catch(IOException io){
+						
+					}
+				}
+				else{
+					JOptionPane.showMessageDialog(rootPane,
+						    "Aucun fichier trouvé",
+						    "Erreur",
+						    JOptionPane.ERROR_MESSAGE);
+				}
+				
 			} 
 		}); 
 	  
