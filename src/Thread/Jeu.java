@@ -16,7 +16,7 @@ public class Jeu extends Thread{
 	
 	public void run(){
 
-		fen.run();
+		fen.start();
 		
 		for(int nbrTour = 0 ; nbrTour < 10 ; ++nbrTour){
 			for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){

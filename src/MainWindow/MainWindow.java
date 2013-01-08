@@ -336,8 +336,8 @@ public class MainWindow extends javax.swing.JFrame{
 			nbr_boulots.setText(Integer.toString(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots()));
 			perso.setText(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_name());
 			nbr_credits.setText(Integer.toString(joueurs_jeu.getInstance().get_current_joueur().get_credits()));
-			status.setText("<html><pre>Tour : " + joueurs_jeu.getInstance().get_tour() +
-					"\t\tC'est au joueur : " + joueurs_jeu.getInstance().get_current_joueur().get_name() + "</pre></html>");
+			status.setText("Tour : " + joueurs_jeu.getInstance().get_tour() +
+					" => C'est au joueur : " + joueurs_jeu.getInstance().get_current_joueur().get_name());
 			
 			if(joueurs_jeu.getInstance().get_current_joueur().get_perso_declin() != null){
 				perso_declin.setText(joueurs_jeu.getInstance().get_current_joueur().get_perso_declin().get_name());

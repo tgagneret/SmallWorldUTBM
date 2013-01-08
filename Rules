@@ -1,1 +1,87 @@
-Rules !!
+Il est important de noter que, malgré les modifications que nous avons faites,
+les règles de notre variante restent très proches des règles du jeu originel.
+Nous avons essentiellement changé des noms et des caractéristiques des
+différents personnages.
+
+	1) Contexte
+Contrairement au jeu originel, vous ne possédez pas des peuples chargés de
+conquérir des territoires de la carte en plaçant correctement des armées. En
+effet, dans notre variante, vous devrez contrôler des étudiants devant
+conquérir des UVs présentes sur le guide des UVs, en répartissant comme il
+faut des charges de "boulot".
+Comme dans le jeu originel, chaque étudiant va hériter de certaines
+caractéristiques qui lui seront spécifiques, ainsi que d'un pouvoir. Chaque
+victoire, lors d'un combat, rapporte au joueur non pas des points de victoire,
+mais des crédits ECTS.
+
+	2) Début de partie
+Lorsque l'utilisateur lance le programme, une première fenêtre s'ouvre à lui, lui
+demandant le nombre de joueurs souhaitant participer (entre 2 et 4). Ensuite,
+une seconde fenêtre apparaît, affichant les diverse combinaisons
+étudiants/pouvoir possibles. Le choix des combinaisons est soumis aux même
+contraintes que le jeu originel.
+	
+	3) Caractéristiques des étudiants et des pouvoirs
+Les deux tableaux ci-dessous regroupent les informations concernant les
+différents étudiants et les différents pouvoirs.
+Détail des différents étudiants :
+
+Par défaut, un étudiant possède 6 unités de boulots.
+
+Etudiant								Caractéristiques
+Alcoolique 				Ne peut capturer que les cases après celles qui sont adjacentes à celles sur lesquelles ils se trouve.
+Surdoué 				Peut capturer parmi les adjacentes et les adjacentes aux adjacentes
+Tricheurs 				Pour chaque capture, le peuple bénéficie d'un boulot supplémentaire par rapport à ce que le joueur a spécifié. 
+						En revanche il possède moins de boulot par rapport aux autres peuples. (Il n'en possède seulement 4)
+Thésard 				Une fois que le thésard a capturé des UVs, il pose des projets, qui lui permettent de bénéficier
+						d'un boulot supplémentaire en défense.
+IUT 					L'IUTien dispose d'un avantage d'un boulot lorsqu'il attaque une UV de technique et méthode. 
+						En revanche, lorsqu'il attaque une UV de connaissances scientifiques, il dispose d'un handicap d'un boulot.
+Prof 					Une fois que le prof a capturé des UVs, il peut poser des examens (dans la limite de X), 
+						qui lui permettent de bénéficier d'un boulot supplémentaire en défense.
+Administratif			Il peut verrouiller jusqu'à deux UVs capturées. 
+						Ces UVs sont ensuite imprenable, et ce pour toute la durée du jeu, où jusqu'à ce que le joueur se sépare de l'étudiant.
+TC5 					Capture plus facilement les XX1X et XX2X, capture normalement les XX0X, mais ne peut pas capturer les autres
+Boulet 					Pas de capacité particulière, mais possède 8 unités de boulot.
+Glandeur 				Peut aussi capturer les cases qui se trouvent sur les bords de la carte, même en cours de partie, sans cases adjacentes.
+
+Détails des différents pouvoirs :
+
+Les pouvoirs fonctionnent tous sur le même principe. Chaque pouvoir concerne
+un type d'UV particulier (LO, TN, ...). Pour ce type d'UV, le pouvoir permet a
+l'étudiant d'obtenir un boulot supplémentaire en attaque sur ces UVs.
+
+Pouvoir								Type d'UV concerné
+Informaticien 								LO
+Mécanicien 									TN
+Matheux 									MT
+Physicien 									PS
+Chimiste 									CM
+Bilingue 									LE
+Philosophe									PH
+Manager 									MG
+Électronicien 								EL
+Historien 									HT
+Économiste 									GE
+
+	4) Déroulement du tour d'un joueur
+
+Le tour d'un joueur se déroule en 3 étapes.
+Premièrement, le programme propose au joueur d'envahir des UVs. Il peut, au
+choix, envahir une UV libre, envahir une UV déjà occupée par un autre joueur,
+ou encore s'abstenir d'envahir une UV. Par défaut, un étudiant doit avoir une
+case adjacente à celle qu'il veut attaquer pour pouvoir le faire (sauf exceptions,
+et début de partie).
+Ensuite, le programme propose au joueur de réorganiser ses boulots. Il peut, en
+choisissant une UV qui lui appartient, ajouter ou enlever des boulots sur cette
+même UV.
+Enfin, en dernier, le programme demande au joueur s'il souhaite passer son
+personnage en déclin. Si celui ci accepte, la fenêtre de choix des combinaisons
+Étudiant/Pouvoir s'affiche, et est soumise aux mêmes contraintes que dans le
+jeu originel.
+Une fois ces opérations terminés, c'est au tour du joueur suivant de prendre la
+main.
+
+	5) Fin de partie
+La partie se finit automatiquement au bout de 10 tours. Le joueur avec le plus
+de crédits ECTS est considéré comme étant le gagnant.
