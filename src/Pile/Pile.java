@@ -2,9 +2,9 @@ package Pile;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import Etudiants.*;
 import Personnage.*;
 import Pouvoirs.*;
-import Peuples.*;
 
 public class Pile {
 
@@ -39,7 +39,7 @@ public class Pile {
 	
 	public ArrayList <Personnage> create(){
 		
-		ArrayList <Peuple> tab_peuples = new ArrayList<Peuple>();
+		ArrayList <Etudiant> tab_peuples = new ArrayList<Etudiant>();
 		ArrayList <Pouvoir> tab_pouvoirs = new ArrayList<Pouvoir>();
 		
 		tab_peuples.add(new Administratifs());

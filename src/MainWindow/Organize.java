@@ -20,7 +20,7 @@ import javax.swing.border.TitledBorder;
 import Map.*;
 
 
-import Joueur.joueurs_jeu;
+import Joueur.Infos_jeu;
 
 public class Organize extends JDialog{
 
@@ -103,7 +103,7 @@ public class Organize extends JDialog{
 		    	toPull.add(pulling);
 		    }
 		    
-		    for(int adding = 0 ; adding < joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots() +1;++adding){
+		    for(int adding = 0 ; adding < Infos_jeu.getInstance().get_current_joueur().get_perso().get_boulots() +1;++adding){
 		    	
 		    	toAdd.add(adding);
 		    }

@@ -137,7 +137,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
 			public void actionPerformed(ActionEvent e) { 
 				
 				gamers.clear();
-				joueurs_jeu.getInstance().clear();
+				Infos_jeu.getInstance().clear();
 				
 				boolean check = false;
 				
@@ -161,7 +161,7 @@ public class NbrJoueurs extends javax.swing.JDialog{
 					for(int nombreJoueur = 0 ;nombreJoueur < Integer.parseInt(choice.getValue().toString()) ; ++nombreJoueur){
 						
 						gamers.add(nom_joueur[nombreJoueur].getText());
-						joueurs_jeu.getInstance().set_joueur(nom_joueur[nombreJoueur].getText(),nombreJoueur);			
+						Infos_jeu.getInstance().set_joueur(nom_joueur[nombreJoueur].getText(),nombreJoueur);			
 					}
 					cacher();
 					

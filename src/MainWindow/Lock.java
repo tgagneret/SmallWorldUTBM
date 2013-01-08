@@ -15,7 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import Joueur.joueurs_jeu;
+import Joueur.Infos_jeu;
 import Map.Map;
 
 public class Lock extends javax.swing.JDialog{
@@ -58,7 +58,7 @@ public class Lock extends javax.swing.JDialog{
 	private void initComponents(){
 		 TitledBorder lock_title = new TitledBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black),"Cases à verrouiller");
 		 
-		toLock = joueurs_jeu.getInstance().get_current_joueur().get_Cases();
+		toLock = Infos_jeu.getInstance().get_current_joueur().get_Cases();
 		Case1 = new JComboBox(toLock.toArray());
 		Case2 = new JComboBox(toLock.toArray());
 		

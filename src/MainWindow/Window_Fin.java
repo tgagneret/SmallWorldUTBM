@@ -11,7 +11,7 @@ public class Window_Fin {
 		
 		String result = "";
 	
-		for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){
+		for(Joueur gamer : Infos_jeu.getInstance().get_joueurs()){
 			result += gamer.get_name() + ": " + gamer.calcul_fin() + "\n";
 		}
 		

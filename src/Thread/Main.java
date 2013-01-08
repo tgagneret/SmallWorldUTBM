@@ -1,9 +1,9 @@
 package Thread;
 import java.util.ArrayList;
 
+import Etudiants.*;
 import Joueur.*;
 import Map.*;
-import Peuples.*;
 import MainWindow.NbrJoueurs;
 import MainWindow.Window_Pile;
 import Pile.*;
@@ -20,7 +20,7 @@ public class Main {
 		Jeu play = new Jeu();
 		
 		joueurs.afficher();
-		while(joueurs_jeu.getInstance().is_set() == false){
+		while(Infos_jeu.getInstance().is_set() == false){
 			try{
 				Thread.sleep(100);
 			}
@@ -29,9 +29,9 @@ public class Main {
 			}
 		}
 		
-		joueurs_jeu.getInstance().start();
+		Infos_jeu.getInstance().start();
 		
-		for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){
+		for(Joueur gamer : Infos_jeu.getInstance().get_joueurs()){
 			pile.afficher();
 			
 			while(gamer.get_perso() == null){
@@ -42,7 +42,7 @@ public class Main {
 					System.out.println("InterruptedException caught"); 
 				}
 			}
-			joueurs_jeu.getInstance().next();
+			Infos_jeu.getInstance().next();
 			
 		}
 		

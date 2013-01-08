@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.ButtonGroup;
 
-import Joueur.joueurs_jeu;
+import Joueur.Infos_jeu;
 import Pile.*;
 import Signaux.*;
 
@@ -121,7 +121,7 @@ public class Window_Pile extends javax.swing.JDialog{
 				while(radio[i].isSelected() == false){
 					++i;
 				}
-				if (joueurs_jeu.getInstance().get_current_joueur().choisir_perso(i)) {
+				if (Infos_jeu.getInstance().get_current_joueur().choisir_perso(i)) {
 					cacher();
 					maj();
 				}
@@ -204,8 +204,8 @@ public class Window_Pile extends javax.swing.JDialog{
 	
 	
 	public void afficher(){
-		stat_title.setTitle(joueurs_jeu.getInstance().get_current_joueur().get_name() + 
-				" (" + joueurs_jeu.getInstance().get_current_joueur().get_credits() + " crédits)");
+		stat_title.setTitle(Infos_jeu.getInstance().get_current_joueur().get_name() + 
+				" (" + Infos_jeu.getInstance().get_current_joueur().get_credits() + " crédits)");
 		this.validate();
 		this.repaint();
 		this.setVisible(true);

@@ -3,7 +3,7 @@ package MainWindow;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-import Joueur.joueurs_jeu;
+import Joueur.Infos_jeu;
 import Map.Map;
 
 public class Attaque {
@@ -24,7 +24,7 @@ public class Attaque {
 			    "Impossible",
 			    JOptionPane.ERROR_MESSAGE);
 	}
-	else if(joueurs_jeu.getInstance().get_current_joueur().isPossible(ligne, colonne) == false){
+	else if(Infos_jeu.getInstance().get_current_joueur().isPossible(ligne, colonne) == false){
 		JOptionPane.showMessageDialog(fen,
 			    "Vous n'avez pas accès à cette case",
 			    "Impossible",
@@ -35,7 +35,7 @@ public class Attaque {
 
 		ArrayList <Integer> values = new ArrayList<Integer>();
 		
-		for(int choix = 0 ; choix < joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots(); ++choix){
+		for(int choix = 0 ; choix < Infos_jeu.getInstance().get_current_joueur().get_perso().get_boulots(); ++choix){
 			values.add(choix+1);
 		}
 		
@@ -55,7 +55,7 @@ public class Attaque {
 			// FAIRE L'ATTAQUE
 			if(Map.getInstance().get_case(ligne, colonne).combat
 					(Integer.parseInt(s.toString()), 
-							joueurs_jeu.getInstance().get_current_joueur()) == false){
+							Infos_jeu.getInstance().get_current_joueur()) == false){
 				JOptionPane.showMessageDialog(fen,
 					    "Impossible",
 					    "Vous ne gagnez pas",
@@ -67,7 +67,7 @@ public class Attaque {
 				// On met a jour la case
 				fen.boutons[ligne][colonne].setText(fen.set_button(Map.getInstance().get_case(ligne, colonne)));
 				//On met a jours les boulots
-				joueurs_jeu.getInstance().get_current_joueur().get_perso().set_boulots(-Integer.parseInt(s.toString()));
+				Infos_jeu.getInstance().get_current_joueur().get_perso().set_boulots(-Integer.parseInt(s.toString()));
 				fen.set_Joueur();
 				
 			}

@@ -1,11 +1,11 @@
 package Personnage;
-import Peuples.Peuple;
+import Etudiants.Etudiant;
 import Pouvoirs.Pouvoir;
 
 public class Personnage {
 	
 	
-	private Peuple peup;
+	private Etudiant peup;
 	private Pouvoir pouv;
 	private int boulots;
 	
@@ -25,7 +25,7 @@ public class Personnage {
 	}
 	
 	
-	public Personnage(Peuple newPeup, Pouvoir newPouv){
+	public Personnage(Etudiant newPeup, Pouvoir newPouv){
 
 		peup = newPeup;
 		pouv = newPouv;
@@ -34,7 +34,7 @@ public class Personnage {
 	}
 	
 	
-	public Peuple get_peuple(){
+	public Etudiant get_peuple(){
 		return peup;
 	}
 	

@@ -19,9 +19,9 @@ public class Jeu extends Thread{
 		fen.start();
 		
 		for(int nbrTour = 0 ; nbrTour < 10 ; ++nbrTour){
-			for(Joueur gamer : joueurs_jeu.getInstance().get_joueurs()){
+			for(Joueur gamer : Infos_jeu.getInstance().get_joueurs()){
 				
-				joueurs_jeu.getInstance().set_current_joueur(gamer);
+				Infos_jeu.getInstance().set_current_joueur(gamer);
 				
 				fen.get_Window().set_Joueur();
 				
@@ -31,7 +31,7 @@ public class Jeu extends Thread{
 					
 					while(fen.get_Window().get_answer("Avez vous fini d'attaquer ?") == false){}
 					
-					if(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_peuple().get_nom().equals("Administratif")){
+					if(Infos_jeu.getInstance().get_current_joueur().get_perso().get_peuple().get_nom().equals("Administratif")){
 						Lock verrouille = new Lock();
 						verrouille.afficher();
 					}
@@ -54,7 +54,7 @@ public class Jeu extends Thread{
 					
 				}
 				else{
-					joueurs_jeu.getInstance().get_current_joueur().passer_declin();
+					Infos_jeu.getInstance().get_current_joueur().passer_declin();
 					Window_Pile pile = new Window_Pile();
 					pile.afficher();
 					while(gamer.get_perso() == null){
@@ -72,7 +72,7 @@ public class Jeu extends Thread{
 				
 			}
 			
-			joueurs_jeu.getInstance().tour_suivant();
+			Infos_jeu.getInstance().tour_suivant();
 		}
 		
 		fen.stop_window();

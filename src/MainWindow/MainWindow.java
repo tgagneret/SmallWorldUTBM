@@ -247,13 +247,13 @@ public class MainWindow extends javax.swing.JFrame{
 	 myperso.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) { 
 				
-				String infos = joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots() + " boulots\n" +
-						joueurs_jeu.getInstance().get_current_joueur().get_perso().get_peuple().get_description() + "\n" + 
-						joueurs_jeu.getInstance().get_current_joueur().get_perso().get_pouvoir().get_description();
+				String infos = Infos_jeu.getInstance().get_current_joueur().get_perso().get_boulots() + " boulots\n" +
+						Infos_jeu.getInstance().get_current_joueur().get_perso().get_peuple().get_description() + "\n" + 
+						Infos_jeu.getInstance().get_current_joueur().get_perso().get_pouvoir().get_description();
 				
 				JOptionPane.showMessageDialog(rootPane,
 					    infos,
-					    joueurs_jeu.getInstance().get_current_joueur().get_perso().get_name(),
+					    Infos_jeu.getInstance().get_current_joueur().get_perso().get_name(),
 					    JOptionPane.INFORMATION_MESSAGE);
 				
 				
@@ -325,7 +325,7 @@ public class MainWindow extends javax.swing.JFrame{
 	/* Genere les informations concernant le joueur */
 	public void set_Joueur(){
 		
-		if(joueurs_jeu.getInstance().get_current_joueur() == null){
+		if(Infos_jeu.getInstance().get_current_joueur() == null){
 			nbr_boulots.setText("");
 			perso.setText("");
 			nbr_credits.setText("");
@@ -333,14 +333,14 @@ public class MainWindow extends javax.swing.JFrame{
 		}
 		else{
 			
-			nbr_boulots.setText(Integer.toString(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_boulots()));
-			perso.setText(joueurs_jeu.getInstance().get_current_joueur().get_perso().get_name());
-			nbr_credits.setText(Integer.toString(joueurs_jeu.getInstance().get_current_joueur().get_credits()));
-			status.setText("Tour : " + joueurs_jeu.getInstance().get_tour() +
-					" => C'est au joueur : " + joueurs_jeu.getInstance().get_current_joueur().get_name());
+			nbr_boulots.setText(Integer.toString(Infos_jeu.getInstance().get_current_joueur().get_perso().get_boulots()));
+			perso.setText(Infos_jeu.getInstance().get_current_joueur().get_perso().get_name());
+			nbr_credits.setText(Integer.toString(Infos_jeu.getInstance().get_current_joueur().get_credits()));
+			status.setText("Tour : " + Infos_jeu.getInstance().get_tour() +
+					" => C'est au joueur : " + Infos_jeu.getInstance().get_current_joueur().get_name());
 			
-			if(joueurs_jeu.getInstance().get_current_joueur().get_perso_declin() != null){
-				perso_declin.setText(joueurs_jeu.getInstance().get_current_joueur().get_perso_declin().get_name());
+			if(Infos_jeu.getInstance().get_current_joueur().get_perso_declin() != null){
+				perso_declin.setText(Infos_jeu.getInstance().get_current_joueur().get_perso_declin().get_name());
 			}
 			else{
 				perso_declin.setText("Aucun");
@@ -351,7 +351,7 @@ public class MainWindow extends javax.swing.JFrame{
 		    		boutons[lignes][colonnes].setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		    		if(Map.getInstance().get_case(lignes, colonnes).get_joueur() != null &&
 		    				Map.getInstance().get_case(lignes, colonnes).get_joueur().get_name()
-		    				.equals(joueurs_jeu.getInstance().get_current_joueur().get_name())){
+		    				.equals(Infos_jeu.getInstance().get_current_joueur().get_name())){
 		    			boutons[lignes][colonnes].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.RED));
 		    		}
 		    	}
