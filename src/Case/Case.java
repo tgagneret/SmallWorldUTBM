@@ -66,7 +66,7 @@ public class Case {
 	
 	public boolean combat(int nbrBoulots, Joueur attaquant){
 		
-		if(player == null){
+		if(player == null || declin == true){
 			set_Case(nbrBoulots,attaquant);
 			return true;
 		}
@@ -143,15 +143,15 @@ public class Case {
 	public void add_boulots(int nbrBoulots){
 			
 			
-			try{
+		try{
 			boulots+=nbrBoulots;
 			player.get_perso().set_boulots(-nbrBoulots);
 			
-			}catch(NullPointerException e){
+		}catch(NullPointerException e){
 				
-				System.out.println("Aucun joueur");
-			}
-		
+			System.out.println("Aucun joueur");
+		}
+			
 	}
 	
 	/* On met la case vide */
