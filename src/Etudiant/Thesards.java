@@ -1,17 +1,16 @@
-package Etudiants;
+package Etudiant;
 
 import Joueur.Infos_jeu;
 import Map.Map;
 
-/* Profs 
- * Bonus +1 defense
- */
+ /* Construit des projets (+1 def) */
 
-public class Profs extends Etudiant{
-	
-	public Profs(){
+
+public class Thesards extends Etudiant{
+
+	public Thesards(){
 		super();
-		this.nom = "Prof";
+		this.nom = "Thésard";
 	}
 
 	public int attaque(int nbrBoulots, int niveau , String type){
@@ -56,6 +55,7 @@ public class Profs extends Etudiant{
 	}
 	
 	public String get_description(){
-		return "Construit des exams (+1 def) sur ses cases";
+		return "Construit des projets (+1 def)";
 	}
+	
 }

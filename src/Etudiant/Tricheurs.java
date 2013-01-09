@@ -1,29 +1,24 @@
-package Etudiants;
+package Etudiant;
 
 import Joueur.Infos_jeu;
 import Map.Map;
 
-/* IUT : -1 pratique, +1 théorique (attaque) */
 
-public class IUT extends Etudiant{
+
+/* Tricheurs : Moins nombreux (4)
+ * Bonus +1 attaque
+ */
+
+public class Tricheurs extends Etudiant{
 	
-	public IUT(){
+	public Tricheurs(){
 		super();
-		this.nom = "IUTien";
-		
+		this.nom = "Tricheur";
+		this.boulots -= 2;
 	}
-
+	
 	public int attaque(int nbrBoulots, int niveau , String type){
-		if(type.equals("CS")){
-			return nbrBoulots - 1;
-		}
-		else if(type.equals("TM")){
-			return nbrBoulots + 1;
-		}
-		else{
-			return nbrBoulots;
-		}
-		
+		return nbrBoulots + 1;
 	}
 	
 	public int defense(int nbrBoulots){
@@ -31,12 +26,12 @@ public class IUT extends Etudiant{
 	}
 	
 	public boolean isPossible(int x, int y) {
+		//Vérification que les coordonnées envoyées sont correctes
 		if (x<0 || x>3 || y<0 || y>5)
 		{
 			return false;
 		}
 		else if(Map.getInstance().is_present(Infos_jeu.getInstance().get_current_joueur()) == false && (x == 0 || x == 3 || y == 0 || y == 5)){
-			System.out.println("ok");
 			return true;
 		}
 		else{			
@@ -65,7 +60,8 @@ public class IUT extends Etudiant{
 	}
 	
 	public String get_description(){
-		return "-1 CS, +1 TM (attaque)";
+		return "-1 attaque, mais moins nombreux";
 	}
 	
 }
+

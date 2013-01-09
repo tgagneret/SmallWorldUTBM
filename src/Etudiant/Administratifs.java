@@ -1,4 +1,4 @@
-package Etudiants;
+package Etudiant;
 import Joueur.Infos_jeu;
 import Map.*;
 

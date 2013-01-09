@@ -1,4 +1,4 @@
-package Etudiants;
+package Etudiant;
 
 /* Les noms de classes (des peuples) prendront un s pour pouvoir appeler ls variable sans s . 
  * Ex : Alcooliques Alcoolique = new Alcooliques()

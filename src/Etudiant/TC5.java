@@ -1,29 +1,45 @@
-package Etudiants;
+package Etudiant;
 
 import Joueur.Infos_jeu;
 import Map.Map;
 
- /* Construit des projets (+1 def) */
+/* TC 5 : Capture plus facilement les XX1X et XX2X, mais ne peut pas capturer les autres
+ * Pas de bonus attaque/defense
+ */
 
 
-public class Thesards extends Etudiant{
-
-	public Thesards(){
+public class TC5 extends Etudiant{
+	
+	public TC5(){
 		super();
-		this.nom = "Thésard";
+		this.nom = "TC5";
+		
 	}
 
 	public int attaque(int nbrBoulots, int niveau , String type){
-		return nbrBoulots;
+		if (niveau - 20 < 10){
+			return nbrBoulots + 1;
+		}
+		else if (niveau -40 < 2){
+			return nbrBoulots;
+		}
+		else{
+			return nbrBoulots;
+		}
+		
 	}
 	
 	public int defense(int nbrBoulots){
-		return nbrBoulots + 1;
+		return nbrBoulots;
 	}
+	
 	
 	public boolean isPossible(int x, int y) {
 		if (x<0 || x>3 || y<0 || y>5)
 		{
+			return false;
+		}
+		else if(Map.getInstance().get_case(x, y).get_niveau()>30){
 			return false;
 		}
 		else if(Map.getInstance().is_present(Infos_jeu.getInstance().get_current_joueur()) == false && (x == 0 || x == 3 || y == 0 || y == 5)){
@@ -37,6 +53,8 @@ public class Thesards extends Etudiant{
 								if(Map.getInstance().get_case(x + ligne_autour, y + colonne_autour).get_joueur() != null){
 									if(Map.getInstance().get_case(x + ligne_autour, y + colonne_autour).get_joueur().get_name()
 											.equals(Infos_jeu.getInstance().get_current_joueur().get_name())){
+
+										
 										return true;
 								}
 							}
@@ -55,7 +73,8 @@ public class Thesards extends Etudiant{
 	}
 	
 	public String get_description(){
-		return "Construit des projets (+1 def)";
+		return "+1 attaque sur les XX1X et XX2X, capture normalement les XX0X mais ne peut pas capturer les autres";
 	}
-	
+
 }
+

@@ -1,7 +1,7 @@
 package Thread;
 import java.util.ArrayList;
 
-import Etudiants.*;
+import Etudiant.*;
 import Joueur.*;
 import Map.*;
 import MainWindow.NbrJoueurs;

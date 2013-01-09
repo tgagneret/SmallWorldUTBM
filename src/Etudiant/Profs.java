@@ -1,32 +1,28 @@
-package Etudiants;
+package Etudiant;
 
 import Joueur.Infos_jeu;
 import Map.Map;
 
-
-
-/* Tricheurs : Moins nombreux (4)
- * Bonus +1 attaque
+/* Profs 
+ * Bonus +1 defense
  */
 
-public class Tricheurs extends Etudiant{
+public class Profs extends Etudiant{
 	
-	public Tricheurs(){
+	public Profs(){
 		super();
-		this.nom = "Tricheur";
-		this.boulots -= 2;
+		this.nom = "Prof";
 	}
-	
+
 	public int attaque(int nbrBoulots, int niveau , String type){
-		return nbrBoulots + 1;
-	}
-	
-	public int defense(int nbrBoulots){
 		return nbrBoulots;
 	}
 	
+	public int defense(int nbrBoulots){
+		return nbrBoulots + 1;
+	}
+	
 	public boolean isPossible(int x, int y) {
-		//Vérification que les coordonnées envoyées sont correctes
 		if (x<0 || x>3 || y<0 || y>5)
 		{
 			return false;
@@ -60,8 +56,6 @@ public class Tricheurs extends Etudiant{
 	}
 	
 	public String get_description(){
-		return "-1 attaque, mais moins nombreux";
+		return "Construit des exams (+1 def) sur ses cases";
 	}
-	
 }
-

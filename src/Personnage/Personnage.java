@@ -1,5 +1,5 @@
 package Personnage;
-import Etudiants.Etudiant;
+import Etudiant.Etudiant;
 import Pouvoirs.Pouvoir;
 
 public class Personnage {

@@ -2,7 +2,7 @@ package Pile;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import Etudiants.*;
+import Etudiant.*;
 import Personnage.*;
 import Pouvoirs.*;
 

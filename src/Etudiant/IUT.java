@@ -1,21 +1,29 @@
-package Etudiants;
+package Etudiant;
 
 import Joueur.Infos_jeu;
 import Map.Map;
 
-/* Boulets : Pas de capacité, mais 8 de boulot */
+/* IUT : -1 pratique, +1 théorique (attaque) */
 
-
-public class Boulets extends Etudiant{
+public class IUT extends Etudiant{
 	
-	public Boulets(){
+	public IUT(){
 		super();
-		this.nom = "Boulet";
-		this.boulots += 2;
+		this.nom = "IUTien";
+		
 	}
 
 	public int attaque(int nbrBoulots, int niveau , String type){
-		return nbrBoulots;
+		if(type.equals("CS")){
+			return nbrBoulots - 1;
+		}
+		else if(type.equals("TM")){
+			return nbrBoulots + 1;
+		}
+		else{
+			return nbrBoulots;
+		}
+		
 	}
 	
 	public int defense(int nbrBoulots){
@@ -28,6 +36,7 @@ public class Boulets extends Etudiant{
 			return false;
 		}
 		else if(Map.getInstance().is_present(Infos_jeu.getInstance().get_current_joueur()) == false && (x == 0 || x == 3 || y == 0 || y == 5)){
+			System.out.println("ok");
 			return true;
 		}
 		else{			
@@ -56,7 +65,7 @@ public class Boulets extends Etudiant{
 	}
 	
 	public String get_description(){
-		return "Pas de capacité";
+		return "-1 CS, +1 TM (attaque)";
 	}
-
+	
 }
